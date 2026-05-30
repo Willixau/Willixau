@@ -15,18 +15,18 @@ body {
 
 .nav-links a {
     color: white;
-    text-decoration: none;          /* Enlève le souligné */
+    text-decoration: none;
     font-weight: bold;
 }
 
 .hero {
-    height: 80vh; /* Prend 80% de la hauteur de l'écran */
+    height: 80vh;
     display: flex;
-    flex-direction: column; /* Empile les éléments verticalement */
-    justify-content: center; /* Centre verticalement */
-    align-items: center;     /* Centre horizontalement */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    background-color: #34495e; /* Un bleu un peu plus clair que la navbar */
+    background-color: #34495e;
     color: white;
 }
 

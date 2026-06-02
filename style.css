@@ -15,6 +15,10 @@ body {
     color: white;             /* Texte en blanc */
     text-align: center;
     font-family: "Fredoka One", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 
 .nav-links {
@@ -31,9 +35,12 @@ body {
 }
 
 .hero {
-    display:inline-block;
-    height: 350px;
-    width: 800px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 80%;
+    max-width: 800px;
+    padding: 40px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -146,4 +153,37 @@ body section p {
   font-size: 30px;
   padding: 0px;
   margin: 0px;
+}
+
+/* Cache la vue par défaut */
+.view.hidden {
+    display: none;
+}
+
+.view {
+    transition: transform 0.5s ease-in-out; /* L'effet de glissement */
+}
+
+/* Style de tes nouvelles boîtes d'options */
+.option-box {
+    background-color: #5b4cd8;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: filter 0.3s; /* Pour l'effet de luminosité au survol */
+}
+
+/* L'effet de brillance au survol */
+.option-box:hover {
+    filter: brightness(1.3);
+}
+
+/* Style du bouton retour */
+.back-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
 }

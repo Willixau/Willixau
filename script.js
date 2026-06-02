@@ -1,16 +1,11 @@
-// On sélectionne les éléments
-const homeView = document.getElementById('home-view');
-const menuView = document.getElementById('menu-view');
+const wrapper = document.getElementById('views-wrapper');
 const exploreBtn = document.getElementById('btn-explore');
 const backBtn = document.querySelector('.back-btn');
 
-// Fonction pour basculer les vues
 exploreBtn.addEventListener('click', () => {
-    homeView.classList.add('hidden'); // Cache l'accueil
-    menuView.classList.remove('hidden'); // Affiche le menu
+    wrapper.classList.add('show-menu'); // Glisse à gauche
 });
 
 backBtn.addEventListener('click', () => {
-    menuView.classList.add('hidden'); // Cache le menu
-    homeView.classList.remove('hidden'); // Affiche l'accueil
+    wrapper.classList.remove('show-menu'); // Revient à droite
 });

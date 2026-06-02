@@ -1,9 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+@keyframes deplacerCarre {
+  0% {
+    transform: translateY(-150px); /* Position de départ */
+  }
+  100% {
+    transform: translateY(0px); /* Retour à la position initiale */
+  }
+}
+
+
 body {
-    background-color: #2c3e50; /* Un gris-bleu foncé */
+    background-image:url(https://video.wixstatic.com/video/08b457_d1812cafa79e4d05a5413608da10fb0d/1080p/mp4/file.mp4);
     color: white;             /* Texte en blanc */
-    font-family: sans-serif;
     text-align: center;
-    margin-top: 50px;
+    font-family: "Fredoka One", sans-serif;
 }
 
 .nav-links {
@@ -20,19 +31,40 @@ body {
 }
 
 .hero {
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
+    display:inline-block;
+    height: 350px;
+    width: 800px;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #34495e;
+    background-color: var(--container-corvid-background-color, rgba(28, 28, 28, 0.85));
+    background-image: var(--bg-gradient,none);
     color: white;
+    border-radius: 20px;
+    box-shadow: var(--shd,0 1px 4px #0009);
+}
+
+nav.navbar-container {
+  box-shadow: var(--shd,0 1px 4px #0009);
+  animation: deplacerCarre 0.5s ease-in-out;
+}
+.Willixau {
+    display:none;
+    position: relative;
+    flex-direction: column;
+    justify-content:end;
+    align-items:end;
+    text-align: center;
+    background-color: var(--container-corvid-background-color, rgba(var(--bg, var(--color_11, color_11)), var(--alpha-bg, 1)));
+    background-image: var(--bg-gradient,none);
+    color: white;
+    border-radius: 20px;
+    height: 200px;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+    font-size: 100px;
+    margin-bottom: 0px;
 }
 
 .cta-button {
@@ -71,6 +103,7 @@ body {
     font-weight: bold;
     cursor: pointer;
     margin-right: 30px;
+    font-size: 18px;
 }
 
 .icon-btn {
@@ -96,4 +129,21 @@ body {
 
 i.fa-solid.fa-envelope {
     font-size: 20px;
+}
+
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    filter:brightness(70%);
+}
+
+body section p {
+  font-size: 30px;
+  padding: 0px;
+  margin: 0px;
 }

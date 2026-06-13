@@ -78,7 +78,7 @@ i.fa-solid.fa-envelope {
 
 
 /* =========================================
-   HERO & ANIMATION DU CARROUSEL
+   HERO
    ========================================= */
 
 .hero {
@@ -92,39 +92,40 @@ i.fa-solid.fa-envelope {
     border-radius: 20px;
     box-shadow: 0 1px 4px #0009;
     position: relative;
-    overflow: hidden; /* Continue de cacher ce qui dépasse à droite */
+    overflow: hidden;
     height: 300px; 
     transition: height 0.35s ease-in-out;
 }
 
 .hero.hero-tall {
-    height: 500px;
+    height: 550px;
 }
 
 .views-wrapper {
     display: flex;
-    width: 200%; /* Important : 200% car il y a 2 vues */
+    margin-top: -40px;
+    width: 200%;
     height: 100%;
     transition: transform 0.35s ease-in-out;
 }
 
 .view {
-    -width: 50%; /* Chaque vue prend 50% du wrapper (donc la taille de la boîte hero) */
+    -width: 50%;
     box-sizing: border-box;
-    
-    /* On ajoute le flex ici pour que l'intérieur de la vue soit centré */
     width: 50%;
     height: 100%;
     vertical-align: middle;
     padding: 15px;
     box-sizing: border-box;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
-    
-    position: relative; /* NOUVEAU : Essentiel pour placer le bouton de retour librement */
+    position: relative;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+    scroll-behavior: smooth;
 }
 
 /* La classe qui sera ajoutée par le JavaScript */
@@ -159,10 +160,12 @@ body section p {
 }
 
 .option-box {
-    background-color: #414141;
+    background-color: rgba(66, 66, 66, 0.5);
     color: rgb(255, 255, 255);
-    justify-content: center;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
+    gap: 15px;
     padding-top: 12px;
     padding-bottom: 12px;
     margin-top: 5px;
@@ -171,41 +174,54 @@ body section p {
     margin-bottom: 5px;
     border-radius: 15px;
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;    /* Prend bien la largeur disponible */
-    max-width: 762px;    /* Limite la largeur pour que ce soit beau */
-    font-size: 1.2rem;
-    box-shadow: 0 1px 4px #0009;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    max-width: 762px;
+    font-size: 1.4rem;
     text-align:left;
     padding-left: 15px;
+    text-overflow:clip;
 }
 
 .option-box:hover {
-    background-color: #5c5c5c; /* Éclaircit un peu au survol */
-    transform: translateY(-3px); /* Fait "monter" le bouton quand on le survole */
+    background-color: #5c5c5c;
+    transform: translateY(-3px);
 }
 
 .back-btn {
-    position: absolute;  /* Détache le bouton du centre */
-    top: 20px;           /* Distance du haut */
-    left: 20px;          /* Distance de la gauche */
+    position:relative;
+    top: 12px;          
+    left: 12px;          
     background-color: transparent;
-    border: 2px solid #e91e7d; /* Couleur rose/magenta inspirée de ton plan */
-    color: #e91e63;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;  /* Rend le bouton parfaitement rond */
+    border:none;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     font-size: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    z-index: 10;
 }
 
 .back-btn:hover {
-    background-color: #e91e63;
+    background-color: rgba(97, 97, 97, 0.5);
     color: white;
-    transform: scale(1.1); /* Petit effet de zoom au survol */
+    transform: scale(1.1);
+}
+
+.back-btn:active {
+    --background-color: transparent;
+    color: white;
+}
+
+.back-btn.disabled {
+    opacity: 0.3;          /* Le rend "grisé" */
+    pointer-events: none;  /* Empêche le clic */
+    cursor: default;       /* Change le curseur */
+    background-color: transparent !important;
 }
 
 #menu-view h2 {
@@ -214,11 +230,14 @@ body section p {
 }
 
 #OptionsTitle {
-  position:absolute;
-  top: 25px;
-  left: 85px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin-top: -50px;
   font-size: 30px;
   font-weight: Normal;
+  display: flex;
+  gap: 15px;
 }
 div#home-view.view {
   cursor: pointer;
@@ -233,12 +252,61 @@ div#menu-view.view {
 
 #Willixau-title {
     font-size: 4.2rem;
+    user-select: none;
 }
 
 #Willixau-description {
     font-size: 1.75rem;
+    user-select: none;
 }
 
 button:focus, a:focus {
     outline: none;
+}
+
+img.box-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: flex;
+}
+
+.btn-press {
+    /* Assure une transition fluide pour l'effet */
+    transition: transform 0.15s ease;
+}
+
+/* L'effet se déclenche quand on clique (état actif) */
+.btn-press:active {
+    transform: scale(0.95); /* Le bouton rétrécit de 5% au clic */
+}
+
+.logo-bas-droite {
+    position: fixed;
+    bottom: 20px; /* Distance par rapport au bas de l'écran */
+    right: 20px;  /* Distance par rapport à la droite de l'écran */
+    z-index: 9999; /* Permet de s'assurer que le logo est au-dessus du reste */
+    width: 40px; /* Ajustez la taille de votre logo */
+    user-select: none;
+}
+
+.logo-text {
+    position: fixed;
+    bottom: 10px; /* Distance par rapport au bas de l'écran */
+    right: 80px;  /* Distance par rapport à la droite de l'écran (ajustez selon la taille du logo) */
+    z-index: 9999; /* Permet de s'assurer que le texte est au-dessus du reste */
+    font-size: 1.5rem; /* Ajustez la taille du texte */
+    color: white; /* Couleur du texte */
+    font-weight: Normal;
+    user-select: none;
+}
+
+#Credits {
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
 }

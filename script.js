@@ -8,7 +8,7 @@ exploreBtn.addEventListener('click', () => {
     heroSection.classList.add('hero-tall');
     
     // NOUVEAU : Ajoute #menu à l'URL
-    window.location.hash = "Menu";
+    window.location.hash = "menu";
 });
 
 backBtn.addEventListener('click', (event) => {
@@ -25,14 +25,14 @@ backBtn.addEventListener('click', (event) => {
 
 window.addEventListener('load', () => {
     // Si l'URL contient #menu, on déclenche l'animation directement
-    if (window.location.hash === "#Menu") {
+    if (window.location.hash === "#menu") {
         wrapper.classList.add('show-menu');
         heroSection.classList.add('hero-tall');
     }
 });
 
 window.addEventListener('hashchange', () => {
-    if (window.location.hash === "#Menu") {
+    if (window.location.hash === "#menu") {
         // Si l'URL devient #menu, on ouvre le panneau
         wrapper.classList.add('show-menu');
         heroSection.classList.add('hero-tall');

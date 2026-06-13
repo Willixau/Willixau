@@ -8,11 +8,13 @@
 body {
     color: white;
     text-align: center;
-    font-family: "Fredoka One", sans-serif;
+    font-family: "Fredoka One", cursive;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0;
+    -webkit-tap-highlight-color:transparent;
+    font-weight: Normal;
 }
 
 #bg-video {
@@ -40,6 +42,7 @@ body {
     margin: 20px auto;
     box-shadow: var(--shd,0 1px 4px #0009);
     animation: deplacerCarre 0.5s ease-in-out;
+    display: none;
 }
 
 .nav-btn {
@@ -90,32 +93,34 @@ i.fa-solid.fa-envelope {
     box-shadow: 0 1px 4px #0009;
     position: relative;
     overflow: hidden; /* Continue de cacher ce qui dépasse à droite */
+    height: 300px; 
+    transition: height 0.35s ease-in-out;
+}
+
+.hero.hero-tall {
+    height: 500px;
 }
 
 .views-wrapper {
     display: flex;
     width: 200%; /* Important : 200% car il y a 2 vues */
-    transition: transform 0.5s ease-in-out;
+    height: 100%;
+    transition: transform 0.35s ease-in-out;
 }
 
 .view {
-    width: 50%; /* Chaque vue prend 50% du wrapper (donc la taille de la boîte hero) */
-    padding: 40px;
+    -width: 50%; /* Chaque vue prend 50% du wrapper (donc la taille de la boîte hero) */
     box-sizing: border-box;
     
     /* On ajoute le flex ici pour que l'intérieur de la vue soit centré */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
     width: 50%;
-    padding: 40px;
+    height: 100%;
+    vertical-align: middle;
+    padding: 15px;
     box-sizing: border-box;
     
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     flex-shrink: 0;
     
@@ -145,44 +150,46 @@ body section p {
 .cta-button {
     margin-top: 20px;
     padding: 10px 25px;
-    background-color: #3498db;
+    background-color: transparent;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 1rem;
 }
 
-.cta-button:hover {
-    background-color: #2980b9;
-}
-
 .option-box {
-    background-color: #5b4cd8;
-    color: white;
-    padding: 15px 20px;
-    margin: 10px 0;
-    border-radius: 12px;
+    background-color: #414141;
+    color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    border-radius: 15px;
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    width: 90%;          /* Prend bien la largeur disponible */
-    max-width: 450px;    /* Limite la largeur pour que ce soit beau */
+    transition: transform 0.2s ease, background-color 0.2s ease;    /* Prend bien la largeur disponible */
+    max-width: 762px;    /* Limite la largeur pour que ce soit beau */
     font-size: 1.2rem;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Petite ombre pour faire ressortir le bouton */
+    box-shadow: 0 1px 4px #0009;
+    text-align:left;
+    padding-left: 15px;
 }
 
 .option-box:hover {
-    background-color: #6a5aeb; /* Éclaircit un peu au survol */
+    background-color: #5c5c5c; /* Éclaircit un peu au survol */
     transform: translateY(-3px); /* Fait "monter" le bouton quand on le survole */
 }
 
 .back-btn {
     position: absolute;  /* Détache le bouton du centre */
-    top: 25px;           /* Distance du haut */
-    left: 25px;          /* Distance de la gauche */
+    top: 20px;           /* Distance du haut */
+    left: 20px;          /* Distance de la gauche */
     background-color: transparent;
-    border: 2px solid #e91e63; /* Couleur rose/magenta inspirée de ton plan */
+    border: 2px solid #e91e7d; /* Couleur rose/magenta inspirée de ton plan */
     color: #e91e63;
     width: 45px;
     height: 45px;
@@ -202,7 +209,36 @@ body section p {
 }
 
 #menu-view h2 {
-    font-size: 40px;
     margin-top: 0;
     margin-bottom: 30px;
+}
+
+#OptionsTitle {
+  position:absolute;
+  top: 25px;
+  left: 85px;
+  font-size: 30px;
+  font-weight: Normal;
+}
+div#home-view.view {
+  cursor: pointer;
+  align-items: center;
+  vertical-align: middle;
+}
+
+div#menu-view.view {
+  vertical-align: middle;
+  padding-top: 90px;
+}
+
+#Willixau-title {
+    font-size: 4.2rem;
+}
+
+#Willixau-description {
+    font-size: 1.75rem;
+}
+
+button:focus, a:focus {
+    outline: none;
 }

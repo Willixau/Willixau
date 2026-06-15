@@ -12,6 +12,14 @@ RobloxProfileTrigger.addEventListener('click', () => {
     window.open('https://www.roblox.com/users/1218746629/profile', '_blank');
 })
 
+RobloxCommunityTrigger.addEventListener('click', () => {
+    window.open('https://www.roblox.com/communities/12058982/Willixau-Development-Community#!/', '_blank');
+})
+
+RobloxGameTrigger.addEventListener('click', () => {
+    window.open('https://www.roblox.com/games/101699826904489/Home', '_blank');
+})
+
 // 1. Gestionnaire d'état du bouton Retour
 function updateBackBtnState() {
     // Le bouton s'active si on est sur n'importe quelle vue autre que l'accueil

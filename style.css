@@ -73,6 +73,10 @@ body {
     height: 340px;
 }
 
+.hero.youtube-tall {
+    height: 340px;
+}
+
 /* Class */
 .show-menu {
     transform: translateX(-50%); 
@@ -83,6 +87,10 @@ body {
 }
 
 .show-roblox {
+    transform: translateX(-150%); 
+}
+
+.show-youtube {
     transform: translateX(-150%); 
 }
 
@@ -119,6 +127,11 @@ div#roblox-view.view {
   padding-top: 120px;
 }
 
+div#youtube-view.view {
+  vertical-align: middle;
+  padding-top: 120px;
+}
+
 img#SocialOptionIco.box-icon {
     width: 40px;
     height: 40px;
@@ -136,6 +149,20 @@ img#RobloxOptionIco.box-icon {
     border-radius: 6px;
 
 }
+
+
+/* 1. On fixe l'ordre des 3 premières vues pour qu'elles restent en place */
+#home-view { order: 1; }
+#menu-view { order: 2; }
+#social-view { order: 3; }
+
+/* 2. Par défaut, Roblox est la 4e vue, et YouTube la 5e */
+#roblox-view { order: 4; }
+#youtube-view { order: 5; }
+
+/* 3. LE TRUC MAGIQUE : Si on veut voir YouTube, il vole la 4e place à Roblox ! */
+.youtube-active-order #youtube-view { order: 4; }
+.youtube-active-order #roblox-view { order: 5; }
 
 /* =========================================
    NAVBAR

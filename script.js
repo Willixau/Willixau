@@ -6,6 +6,13 @@ const heroSection = document.querySelector('.hero');
 // Buttons Menu
 const SocialTrigger = document.querySelector("#SocialTrigger");
 const RobloxTrigger = document.querySelector("#RobloxTrigger");
+const YoutubeTrigger = document.querySelector("#YoutubeTrigger");
+const RobloxProfileTrigger = document.querySelector("#RobloxProfileTrigger")
+const RobloxCommunityTrigger = document.querySelector("#RobloxCommunityTrigger")
+const RobloxGameTrigger = document.querySelector("#RobloxGameTrigger")
+const YoutubeWillixauTrigger = document.querySelector("#YouTubeWillixauTrigger")
+const YouTubeWillixauMusicTrigger = document.querySelector("#YouTubeWillixau-musicTrigger")
+const YouTubeWillixauPersonalTrigger = document.querySelector("#YouTubeWillixau-personalTrigger")
 
 RobloxProfileTrigger.addEventListener('click', () => {
     window.open('https://www.roblox.com/users/1218746629/profile', '_blank');
@@ -19,12 +26,25 @@ RobloxGameTrigger.addEventListener('click', () => {
     window.open('https://www.roblox.com/games/101699826904489/Home', '_blank');
 })
 
+YoutubeWillixauTrigger.addEventListener('click', () => {
+    window.open('https://www.youtube.com/@Willixau', '_blank');
+})
+
+YouTubeWillixauMusicTrigger.addEventListener('click', () => {
+    window.open('https://www.youtube.com/@WillixauMusic', '_blank');
+})
+
+YouTubeWillixauPersonalTrigger.addEventListener('click', () => {
+    window.open('https://www.youtube.com/@Willixau-personal', '_blank');
+})
+
 // 1. Gestionnaire d'état du bouton Retour
 function updateBackBtnState() {
     // Le bouton s'active si on est sur n'importe quelle vue autre que l'accueil
     const isMenuVisible = wrapper.classList.contains('show-menu') || 
                           wrapper.classList.contains('show-social') || 
-                          wrapper.classList.contains('show-roblox');
+                          wrapper.classList.contains('show-roblox') ||
+                          wrapper.classList.contains('show-youtube');
     backBtn.classList.toggle('disabled', !isMenuVisible);
 }
 
@@ -41,12 +61,19 @@ RobloxTrigger.addEventListener('click', () => {
     window.location.hash = "Roblox"; 
 });
 
+YoutubeTrigger.addEventListener('click', () => {
+    window.location.hash = "YouTube"; 
+});
+
 // 3. Navigation vers l'arrière (Historique en cascade)
 backBtn.addEventListener('click', (event) => {
     event.stopPropagation(); 
     
     if (window.location.hash === "#Roblox") {
         window.location.hash = "Social"; // Recule vers les réseaux
+    } 
+    else if (window.location.hash === "#YouTube") {
+        window.location.hash = "Social";
     } 
     else if (window.location.hash === "#Social") {
         window.location.hash = "Menu"; // Recule vers le menu principal
@@ -61,8 +88,8 @@ backBtn.addEventListener('click', (event) => {
 // 4. Mise à jour de l'interface globale selon l'URL
 function updateInterfaceBasedOnHash() {
     // A. Nettoyage complet (Important pour éviter les conflits à 25 vues !)
-    wrapper.classList.remove('show-menu', 'show-social', 'show-roblox');
-    heroSection.classList.remove('hero-tall', 'social-tall', 'roblox-tall');
+    wrapper.classList.remove('show-menu', 'show-social', 'show-roblox', 'show-youtube');
+    heroSection.classList.remove('hero-tall', 'social-tall', 'roblox-tall', 'youtube-tall');
 
     // B. Activation de la vue demandée
     if (window.location.hash === "#Menu") {
@@ -74,6 +101,10 @@ function updateInterfaceBasedOnHash() {
     } else if (window.location.hash === "#Roblox") {
         wrapper.classList.add('show-roblox');
         heroSection.classList.add('roblox-tall');
+    } else if (window.location.hash === "#YouTube") {
+        wrapper.classList.add('show-youtube');
+        wrapper.classList.add('youtube-active-order'); // <-- 1. On ajoute la classe d'ordre ici
+        heroSection.classList.add('youtube-tall');
     }
     
     // C. Rafraîchissement du bouton retour
@@ -81,11 +112,16 @@ function updateInterfaceBasedOnHash() {
 
     // D. Remise à zéro du défilement après la transition (0.35s)
     setTimeout(() => {
+        // <-- 2. On retire l'ordre SEULEMENT si on n'est plus sur la page YouTube
+        if (window.location.hash !== "#YouTube") {
+            wrapper.classList.remove('youtube-active-order');
+        }
+
         const allViews = document.querySelectorAll('.view');
         allViews.forEach(view => {
             view.scrollTop = 0; 
         });
-    }, 350); 
+    }, 350);
 }
 
 // 5. Écouteurs d'événements de chargement

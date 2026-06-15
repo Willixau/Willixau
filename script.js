@@ -6,7 +6,6 @@ const heroSection = document.querySelector('.hero');
 // Buttons Menu
 const SocialTrigger = document.querySelector("#SocialTrigger");
 const RobloxTrigger = document.querySelector("#RobloxTrigger");
-const RobloxProfileTrigger = document.querySelector("#RobloxProfileTrigger")
 
 RobloxProfileTrigger.addEventListener('click', () => {
     window.open('https://www.roblox.com/users/1218746629/profile', '_blank');

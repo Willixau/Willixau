@@ -5,58 +5,82 @@ const heroSection = document.querySelector('.hero');
 
 // Buttons Menu
 const SocialTrigger = document.querySelector("#SocialTrigger");
-// Tu pourras ajouter les autres triggers ici plus tard
+const RobloxTrigger = document.querySelector("#RobloxTrigger");
+const RobloxProfileTrigger = document.querySelector("#RobloxProfileTrigger")
 
-// 1. Vérifie si on n'est PAS sur l'accueil pour activer le bouton retour
+RobloxProfileTrigger.addEventListener('click', () => {
+    window.open('https://www.roblox.com/users/1218746629/profile', '_blank');
+})
+
+// 1. Gestionnaire d'état du bouton Retour
 function updateBackBtnState() {
-    const isMenuVisible = wrapper.classList.contains('show-menu') || wrapper.classList.contains('show-social');
+    // Le bouton s'active si on est sur n'importe quelle vue autre que l'accueil
+    const isMenuVisible = wrapper.classList.contains('show-menu') || 
+                          wrapper.classList.contains('show-social') || 
+                          wrapper.classList.contains('show-roblox');
     backBtn.classList.toggle('disabled', !isMenuVisible);
 }
 
-// 2. Les clics pour avancer
+// 2. Navigation vers l'avant (Changement d'URL)
 exploreBtn.addEventListener('click', () => {
-    window.location.hash = "Menu"; // Changer l'URL fait tout le travail !
+    window.location.hash = "Menu"; 
 });
 
 SocialTrigger.addEventListener('click', () => {
     window.location.hash = "Social"; 
 });
 
-// 3. Le clic pour faire retour
+RobloxTrigger.addEventListener('click', () => {
+    window.location.hash = "Roblox"; 
+});
+
+// 3. Navigation vers l'arrière (Historique en cascade)
 backBtn.addEventListener('click', (event) => {
     event.stopPropagation(); 
     
-    // Si on est dans Social, on recule vers Menu
-    if (window.location.hash === "#Social") {
-        window.location.hash = "Menu";
+    if (window.location.hash === "#Roblox") {
+        window.location.hash = "Social"; // Recule vers les réseaux
     } 
-    // Sinon (si on est dans Menu), on recule vers l'accueil
+    else if (window.location.hash === "#Social") {
+        window.location.hash = "Menu"; // Recule vers le menu principal
+    } 
     else {
+        // Recule vers l'accueil et nettoie l'URL
         history.replaceState(null, null, ' '); 
-        // Force l'actualisation manuelle car replaceState ne déclenche pas hashchange
         updateInterfaceBasedOnHash();
     }
 });
 
-// 4. La fonction magique qui lit l'URL et affiche la bonne page
+// 4. Mise à jour de l'interface globale selon l'URL
 function updateInterfaceBasedOnHash() {
-    // A. On nettoie TOUT (on ferme toutes les vues)
-    wrapper.classList.remove('show-menu', 'show-social');
-    heroSection.classList.remove('hero-tall', 'social-tall');
+    // A. Nettoyage complet (Important pour éviter les conflits à 25 vues !)
+    wrapper.classList.remove('show-menu', 'show-social', 'show-roblox');
+    heroSection.classList.remove('hero-tall', 'social-tall', 'roblox-tall');
 
-    // B. On ouvre la bonne vue selon le mot dans l'URL
+    // B. Activation de la vue demandée
     if (window.location.hash === "#Menu") {
         wrapper.classList.add('show-menu');
         heroSection.classList.add('hero-tall');
     } else if (window.location.hash === "#Social") {
         wrapper.classList.add('show-social');
         heroSection.classList.add('social-tall');
+    } else if (window.location.hash === "#Roblox") {
+        wrapper.classList.add('show-roblox');
+        heroSection.classList.add('roblox-tall');
     }
     
-    // C. On met à jour le bouton retour
+    // C. Rafraîchissement du bouton retour
     updateBackBtnState();
+
+    // D. Remise à zéro du défilement après la transition (0.35s)
+    setTimeout(() => {
+        const allViews = document.querySelectorAll('.view');
+        allViews.forEach(view => {
+            view.scrollTop = 0; 
+        });
+    }, 350); 
 }
 
-// 5. On écoute les changements d'URL
+// 5. Écouteurs d'événements de chargement
 window.addEventListener('load', updateInterfaceBasedOnHash);
 window.addEventListener('hashchange', updateInterfaceBasedOnHash);

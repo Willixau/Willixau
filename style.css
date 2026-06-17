@@ -77,6 +77,10 @@ body {
     height: 340px;
 }
 
+.hero.discord-tall {
+    height: 280px;
+}
+
 /* Class */
 .show-menu {
     transform: translateX(-50%); 
@@ -91,6 +95,10 @@ body {
 }
 
 .show-youtube {
+    transform: translateX(-150%); 
+}
+
+.show-discord {
     transform: translateX(-150%); 
 }
 
@@ -132,6 +140,11 @@ div#youtube-view.view {
   padding-top: 120px;
 }
 
+div#discord-view.view {
+  vertical-align: middle;
+  padding-top: 120px;
+}
+
 img#SocialOptionIco.box-icon {
     width: 40px;
     height: 40px;
@@ -147,7 +160,12 @@ img#RobloxOptionIco.box-icon {
     width: 38px;
     height: 38px;
     border-radius: 6px;
+}
 
+img#DiscordOptionIco.box-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
 }
 
 
@@ -159,10 +177,16 @@ img#RobloxOptionIco.box-icon {
 /* 2. Par défaut, Roblox est la 4e vue, et YouTube la 5e */
 #roblox-view { order: 4; }
 #youtube-view { order: 5; }
+#discord-view { order: 6; }
 
 /* 3. LE TRUC MAGIQUE : Si on veut voir YouTube, il vole la 4e place à Roblox ! */
 .youtube-active-order #youtube-view { order: 4; }
 .youtube-active-order #roblox-view { order: 5; }
+.youtube-active-order #discord-view { order: 6; }
+
+.discord-active-order #discord-view { order: 4; }
+.discord-active-order #youtube-view { order: 5; }
+.discord-active-order #roblox-view { order: 6; }
 
 /* =========================================
    NAVBAR

@@ -7,12 +7,17 @@ const heroSection = document.querySelector('.hero');
 const SocialTrigger = document.querySelector("#SocialTrigger");
 const RobloxTrigger = document.querySelector("#RobloxTrigger");
 const YoutubeTrigger = document.querySelector("#YoutubeTrigger");
-const RobloxProfileTrigger = document.querySelector("#RobloxProfileTrigger")
-const RobloxCommunityTrigger = document.querySelector("#RobloxCommunityTrigger")
-const RobloxGameTrigger = document.querySelector("#RobloxGameTrigger")
-const YoutubeWillixauTrigger = document.querySelector("#YouTubeWillixauTrigger")
-const YouTubeWillixauMusicTrigger = document.querySelector("#YouTubeWillixau-musicTrigger")
-const YouTubeWillixauPersonalTrigger = document.querySelector("#YouTubeWillixau-personalTrigger")
+const DiscordTrigger = document.querySelector("#DiscordTrigger");
+const InstagramTrigger = document.querySelector("#InstagramTrigger");
+
+const RobloxProfileTrigger = document.querySelector("#RobloxProfileTrigger");
+const RobloxCommunityTrigger = document.querySelector("#RobloxCommunityTrigger");
+const RobloxGameTrigger = document.querySelector("#RobloxGameTrigger");
+const YoutubeWillixauTrigger = document.querySelector("#YouTubeWillixauTrigger");
+const YouTubeWillixauMusicTrigger = document.querySelector("#YouTubeWillixau-musicTrigger");
+const YouTubeWillixauPersonalTrigger = document.querySelector("#YouTubeWillixau-personalTrigger");
+const DiscordProfileTrigger = document.querySelector("#DiscordProfileTrigger");
+const DiscordHomeTrigger = document.querySelector("#DiscordHomeTrigger");
 
 RobloxProfileTrigger.addEventListener('click', () => {
     window.open('https://www.roblox.com/users/1218746629/profile', '_blank');
@@ -38,13 +43,26 @@ YouTubeWillixauPersonalTrigger.addEventListener('click', () => {
     window.open('https://www.youtube.com/@Willixau-personal', '_blank');
 })
 
+DiscordProfileTrigger.addEventListener('click', () => {
+    window.open('https://discord.com/users/930971533579534336', '_blank');
+})
+
+DiscordHomeTrigger.addEventListener('click', () => {
+    window.open('https://discord.com/invite/RS8cVSEZ', '_blank');
+})
+
+InstagramTrigger.addEventListener('click', () => {
+    window.open('https://www.instagram.com/willixau/', '_blank');
+})
+
 // 1. Gestionnaire d'état du bouton Retour
 function updateBackBtnState() {
     // Le bouton s'active si on est sur n'importe quelle vue autre que l'accueil
     const isMenuVisible = wrapper.classList.contains('show-menu') || 
                           wrapper.classList.contains('show-social') || 
                           wrapper.classList.contains('show-roblox') ||
-                          wrapper.classList.contains('show-youtube');
+                          wrapper.classList.contains('show-youtube') ||
+                          wrapper.classList.contains('show-discord');
     backBtn.classList.toggle('disabled', !isMenuVisible);
 }
 
@@ -65,6 +83,10 @@ YoutubeTrigger.addEventListener('click', () => {
     window.location.hash = "YouTube"; 
 });
 
+DiscordTrigger.addEventListener('click', () => {
+    window.location.hash = "Discord"; 
+});
+
 // 3. Navigation vers l'arrière (Historique en cascade)
 backBtn.addEventListener('click', (event) => {
     event.stopPropagation(); 
@@ -73,6 +95,9 @@ backBtn.addEventListener('click', (event) => {
         window.location.hash = "Social"; // Recule vers les réseaux
     } 
     else if (window.location.hash === "#YouTube") {
+        window.location.hash = "Social";
+    } 
+    else if (window.location.hash === "#Discord") {
         window.location.hash = "Social";
     } 
     else if (window.location.hash === "#Social") {
@@ -88,8 +113,8 @@ backBtn.addEventListener('click', (event) => {
 // 4. Mise à jour de l'interface globale selon l'URL
 function updateInterfaceBasedOnHash() {
     // A. Nettoyage complet (Important pour éviter les conflits à 25 vues !)
-    wrapper.classList.remove('show-menu', 'show-social', 'show-roblox', 'show-youtube');
-    heroSection.classList.remove('hero-tall', 'social-tall', 'roblox-tall', 'youtube-tall');
+    wrapper.classList.remove('show-menu', 'show-social', 'show-roblox', 'show-youtube', 'show-discord');
+    heroSection.classList.remove('hero-tall', 'social-tall', 'roblox-tall', 'youtube-tall', 'discord-tall');
 
     // B. Activation de la vue demandée
     if (window.location.hash === "#Menu") {
@@ -105,6 +130,10 @@ function updateInterfaceBasedOnHash() {
         wrapper.classList.add('show-youtube');
         wrapper.classList.add('youtube-active-order'); // <-- 1. On ajoute la classe d'ordre ici
         heroSection.classList.add('youtube-tall');
+    } else if (window.location.hash === "#Discord") {
+        wrapper.classList.add('show-discord');
+        wrapper.classList.add('discord-active-order'); // <-- 1. On ajoute la classe d'ordre ici
+        heroSection.classList.add('discord-tall');
     }
     
     // C. Rafraîchissement du bouton retour
@@ -112,16 +141,19 @@ function updateInterfaceBasedOnHash() {
 
     // D. Remise à zéro du défilement après la transition (0.35s)
     setTimeout(() => {
-        // <-- 2. On retire l'ordre SEULEMENT si on n'est plus sur la page YouTube
-        if (window.location.hash !== "#YouTube") {
-            wrapper.classList.remove('youtube-active-order');
-        }
+    if (window.location.hash !== "#YouTube") {
+        wrapper.classList.remove('youtube-active-order');
+    } 
+    
+    if (window.location.hash !== "#Discord") {
+        wrapper.classList.remove('discord-active-order');
+    }
 
-        const allViews = document.querySelectorAll('.view');
-        allViews.forEach(view => {
-            view.scrollTop = 0; 
-        });
-    }, 350);
+    const allViews = document.querySelectorAll('.view');
+    allViews.forEach(view => {
+        view.scrollTop = 0; 
+    });
+}, 350);
 }
 
 // 5. Écouteurs d'événements de chargement

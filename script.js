@@ -9,6 +9,10 @@ const RobloxTrigger = document.querySelector("#RobloxTrigger");
 const YoutubeTrigger = document.querySelector("#YoutubeTrigger");
 const DiscordTrigger = document.querySelector("#DiscordTrigger");
 const InstagramTrigger = document.querySelector("#InstagramTrigger");
+const XTrigger = document.querySelector("#XTrigger");
+const SpotifyTrigger = document.querySelector("#SpotifyTrigger");
+const RedditTrigger = document.querySelector("#RedditTrigger");
+const SteamTrigger = document.querySelector("#SteamTrigger");
 
 const RobloxProfileTrigger = document.querySelector("#RobloxProfileTrigger");
 const RobloxCommunityTrigger = document.querySelector("#RobloxCommunityTrigger");
@@ -53,6 +57,22 @@ DiscordHomeTrigger.addEventListener('click', () => {
 
 InstagramTrigger.addEventListener('click', () => {
     window.open('https://www.instagram.com/willixau/', '_blank');
+})
+
+XTrigger.addEventListener('click', () => {
+    window.open('https://x.com/Willixau', '_blank');
+})
+
+SpotifyTrigger.addEventListener('click', () => {
+    window.open('https://open.spotify.com/user/7x49lyu6drjvui7x0eh8vkjgh', '_blank');
+})
+
+RedditTrigger.addEventListener('click', () => {
+    window.open('https://www.reddit.com/user/No-Practice-2144/', '_blank');
+})
+
+SteamTrigger.addEventListener('click', () => {
+    window.open('https://steamcommunity.com/profiles/76561199484386928/', '_blank');
 })
 
 // 1. Gestionnaire d'état du bouton Retour

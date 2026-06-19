@@ -5,6 +5,8 @@ const heroSection = document.querySelector('.hero');
 
 // Buttons Menu
 const SocialTrigger = document.querySelector("#SocialTrigger");
+const AboutTrigger = document.querySelector("#AboutTrigger")
+
 const RobloxTrigger = document.querySelector("#RobloxTrigger");
 const YoutubeTrigger = document.querySelector("#YoutubeTrigger");
 const DiscordTrigger = document.querySelector("#DiscordTrigger");
@@ -13,6 +15,7 @@ const XTrigger = document.querySelector("#XTrigger");
 const SpotifyTrigger = document.querySelector("#SpotifyTrigger");
 const RedditTrigger = document.querySelector("#RedditTrigger");
 const SteamTrigger = document.querySelector("#SteamTrigger");
+const GDTrigger = document.querySelector("#GDTrigger");
 
 const RobloxProfileTrigger = document.querySelector("#RobloxProfileTrigger");
 const RobloxCommunityTrigger = document.querySelector("#RobloxCommunityTrigger");
@@ -78,17 +81,23 @@ SteamTrigger.addEventListener('click', () => {
 // 1. Gestionnaire d'état du bouton Retour
 function updateBackBtnState() {
     // Le bouton s'active si on est sur n'importe quelle vue autre que l'accueil
-    const isMenuVisible = wrapper.classList.contains('show-menu') || 
+    const isMenuVisible = wrapper.classList.contains('show-menu') ||
+                          wrapper.classList.contains('show-about') || 
                           wrapper.classList.contains('show-social') || 
                           wrapper.classList.contains('show-roblox') ||
                           wrapper.classList.contains('show-youtube') ||
-                          wrapper.classList.contains('show-discord');
+                          wrapper.classList.contains('show-discord') ||
+                          wrapper.classList.contains('show-geometrydash');
     backBtn.classList.toggle('disabled', !isMenuVisible);
 }
 
 // 2. Navigation vers l'avant (Changement d'URL)
 exploreBtn.addEventListener('click', () => {
     window.location.hash = "Menu"; 
+});
+
+AboutTrigger.addEventListener('click', () => {
+    window.location.hash = "About"; 
 });
 
 SocialTrigger.addEventListener('click', () => {
@@ -107,12 +116,16 @@ DiscordTrigger.addEventListener('click', () => {
     window.location.hash = "Discord"; 
 });
 
+GDTrigger.addEventListener('click', () => {
+    window.location.hash = "GeometryDash"; 
+});
+
 // 3. Navigation vers l'arrière (Historique en cascade)
 backBtn.addEventListener('click', (event) => {
     event.stopPropagation(); 
     
     if (window.location.hash === "#Roblox") {
-        window.location.hash = "Social"; // Recule vers les réseaux
+        window.location.hash = "Social"; // Reculer
     } 
     else if (window.location.hash === "#YouTube") {
         window.location.hash = "Social";
@@ -120,7 +133,13 @@ backBtn.addEventListener('click', (event) => {
     else if (window.location.hash === "#Discord") {
         window.location.hash = "Social";
     } 
+    else if (window.location.hash === "#GeometryDash") {
+        window.location.hash = "Social";
+    } 
     else if (window.location.hash === "#Social") {
+        window.location.hash = "Menu"; // Recule vers le menu principal
+    } 
+    else if (window.location.hash === "#About") {
         window.location.hash = "Menu"; // Recule vers le menu principal
     } 
     else {
@@ -132,48 +151,62 @@ backBtn.addEventListener('click', (event) => {
 
 // 4. Mise à jour de l'interface globale selon l'URL
 function updateInterfaceBasedOnHash() {
-    // A. Nettoyage complet (Important pour éviter les conflits à 25 vues !)
-    wrapper.classList.remove('show-menu', 'show-social', 'show-roblox', 'show-youtube', 'show-discord');
-    heroSection.classList.remove('hero-tall', 'social-tall', 'roblox-tall', 'youtube-tall', 'discord-tall');
+    // A. Nettoyage complet des affichages
+    wrapper.classList.remove('show-menu', 'show-about', 'show-social', 'show-roblox', 'show-youtube', 'show-discord', 'show-geometrydash');
+    heroSection.classList.remove('hero-tall', 'about-tall', 'social-tall', 'roblox-tall', 'youtube-tall', 'discord-tall', 'geometrydash-tall');
 
-    // B. Activation de la vue demandée
-    if (window.location.hash === "#Menu") {
+    // Petite astuce pour écrire moins de code !
+    const hash = window.location.hash;
+
+    // B. Activation de la vue demandée ET de ses parents
+    if (hash === "#Menu") {
         wrapper.classList.add('show-menu');
         heroSection.classList.add('hero-tall');
-    } else if (window.location.hash === "#Social") {
-        wrapper.classList.add('show-social');
+    } else if (hash === "#About") {
+        wrapper.classList.add('show-about', 'about-active-order');
+        heroSection.classList.add('about-tall');
+    } else if (hash === "#Social") {
+        wrapper.classList.add('show-social', 'social-active-order');
         heroSection.classList.add('social-tall');
-    } else if (window.location.hash === "#Roblox") {
-        wrapper.classList.add('show-roblox');
+    } else if (hash === "#Roblox") {
+        // NOUVEAU : On garde "social-active-order" pour que Social reste au Slot 3 derrière Roblox !
+        wrapper.classList.add('show-roblox', 'social-active-order', 'roblox-active-order');
         heroSection.classList.add('roblox-tall');
-    } else if (window.location.hash === "#YouTube") {
-        wrapper.classList.add('show-youtube');
-        wrapper.classList.add('youtube-active-order'); // <-- 1. On ajoute la classe d'ordre ici
+    } else if (hash === "#YouTube") {
+        wrapper.classList.add('show-youtube', 'social-active-order', 'youtube-active-order'); 
         heroSection.classList.add('youtube-tall');
-    } else if (window.location.hash === "#Discord") {
-        wrapper.classList.add('show-discord');
-        wrapper.classList.add('discord-active-order'); // <-- 1. On ajoute la classe d'ordre ici
+    } else if (hash === "#Discord") {
+        wrapper.classList.add('show-discord', 'social-active-order', 'discord-active-order'); 
         heroSection.classList.add('discord-tall');
+    } else if (hash === "#GeometryDash") {
+        wrapper.classList.add('show-geometrydash', 'social-active-order', 'geometrydash-active-order'); 
+        heroSection.classList.add('geometrydash-tall');
     }
     
     // C. Rafraîchissement du bouton retour
     updateBackBtnState();
 
-    // D. Remise à zéro du défilement après la transition (0.35s)
+    // D. Remise à zéro du défilement et nettoyage des ordres après la transition (0.35s)
     setTimeout(() => {
-    if (window.location.hash !== "#YouTube") {
-        wrapper.classList.remove('youtube-active-order');
-    } 
-    
-    if (window.location.hash !== "#Discord") {
-        wrapper.classList.remove('discord-active-order');
-    }
+        // On retire l'ordre de About si on ne l'utilise plus
+        if (hash !== "#About") wrapper.classList.remove('about-active-order');
+        
+        // Magie : On garde Social actif si on est sur Social OU sur un de ses réseaux enfants
+        if (hash !== "#Social" && hash !== "#Roblox" && hash !== "#YouTube" && hash !== "#Discord" && hash !== "#GeometryDash") {
+            wrapper.classList.remove('social-active-order');
+        }
 
-    const allViews = document.querySelectorAll('.view');
-    allViews.forEach(view => {
-        view.scrollTop = 0; 
-    });
-}, 350);
+        // Nettoyage du Slot 4
+        if (hash !== "#Roblox") wrapper.classList.remove('roblox-active-order');
+        if (hash !== "#YouTube") wrapper.classList.remove('youtube-active-order');
+        if (hash !== "#Discord") wrapper.classList.remove('discord-active-order');
+        if (hash !== "#GeometryDash") wrapper.classList.remove('geometrydash-active-order');
+
+        const allViews = document.querySelectorAll('.view');
+        allViews.forEach(view => {
+            view.scrollTop = 0; 
+        });
+    }, 350);
 }
 
 // 5. Écouteurs d'événements de chargement

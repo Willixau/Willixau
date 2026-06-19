@@ -32,6 +32,10 @@
     </style>
 </head>
 <body>
+<h5 id="Status">Pre-alpha</h5>
+<h5 id="Build">Build 16</h5>
+<h5 id="Version">Ver 0.5.6</h5>
+
     <video autoplay muted loop playsinline id="bg-video">
         <source src="https://video.wixstatic.com/video/08b457_d1812cafa79e4d05a5413608da10fb0d/1080p/mp4/file.mp4" type="video/mp4">
     </video>
@@ -51,11 +55,14 @@
     <button class="back-btn btn-press"><i class="fa-solid fa-arrow-left"></i></button>
     <div class="views-wrapper" id="views-wrapper">
         <div id="home-view" class="view">
+            <img src="Assets/Willixau.gif" class="box-icon4" id="Home-Profile">
+            <div id="WillixauStuff">
             <h1 id="Willixau-title">Willixau</h1>
             <p id="Willixau-description">00Willixau00</p>
             <button id="btn-explore" class="cta-button">Interact to begin</button>
+            </div>
         </div>
-
+<!--Menu-->
         <div id="menu-view" class="view">
             <h2 id="OptionsTitle">
                 <img src="Assets/Home.png" id="MenuOptionIco" class="box-icon" alt="Ico">
@@ -88,6 +95,21 @@
             <div id="ContactTrigger" class="option-box">
                 <img src="Assets/Phone.png" class="box-icon" alt="Ico">
                 <span>Contact</span>
+            </div>
+        </div>
+
+        <div id="projects-view" class="view">
+            <h2 id="OptionsTitle">
+                <img src="Assets/Grid.png" id="ProjectsOptionIco" class="box-icon" alt="Ico">
+                <span>Projects</span>
+            </h2>
+            <div id="HomegameTrigger" class="option-box">
+                <img src="Assets/Home (Game).png" class="box-iconC" alt="Ico">
+                <span>Home</span>
+            </div>
+            <div id="MozaikplusTrigger" class="option-box">
+                <img src="Assets/Information.png" class="box-icon" alt="Ico">
+                <span>Mozaïk Plus</span>
             </div>
         </div>
 
@@ -175,7 +197,7 @@
                 <span>Social Media & platforms</span>
             </h2>
             <div id="RobloxTrigger" class="option-box" >
-                <img src="Assets/Roblox.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/Roblox.png" class="box-iconC" alt="Ico">
                 <span>Roblox</span>
             </div>
             <div id="YoutubeTrigger" class="option-box">
@@ -183,16 +205,16 @@
                 <span>YouTube</span>
             </div>
             <div id="DiscordTrigger" class="option-box">
-                <img src="Assets/Discord.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/Discord.png" class="box-iconC" alt="Ico">
                 <span>Discord</span>
             </div>
             <div id="InstagramTrigger" class="option-box">
-                <img src="Assets/Instagram.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/Instagram.png" class="box-iconC" alt="Ico">
                 <span>Instagram</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
             <div id="XTrigger" class="option-box">
-                <img src="Assets/X (Twitter).png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/X (Twitter).png" class="box-iconC" alt="Ico">
                 <span>X (Twitter)</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
@@ -202,17 +224,17 @@
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
             <div id="RedditTrigger" class="option-box">
-                <img src="Assets/Reddit.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/Reddit.png" class="box-iconC" alt="Ico">
                 <span>Reddit</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
             <div id="SteamTrigger" class="option-box">
-                <img src="Assets/Steam.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/Steam.png" class="box-iconC" alt="Ico">
                 <span>Steam</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
             <div id="GDTrigger" class="option-box">
-                <img src="Assets/Geometry_Dash.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/Geometry_Dash.png" class="box-iconC" alt="Ico">
                 <span>Geometry Dash</span>
             </div>
         </div>
@@ -223,17 +245,17 @@
                 <span>Roblox</span>
             </h2>
             <div id="RobloxProfileTrigger" class="option-box" >
-                <img src="Assets/User.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/User.png" class="box-iconC" alt="Ico">
                 <span>Profile</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
             <div id="RobloxCommunityTrigger" class="option-box">
-                <img src="Assets/Players.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/Players.png" class="box-iconC" alt="Ico">
                 <span>Community</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
             <div id="RobloxGameTrigger" class="option-box">
-                <img src="Assets/Gamepad.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/Gamepad.png" class="box-iconC" alt="Ico">
                 <span>Game (Home)</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
@@ -245,17 +267,17 @@
                 <span>YouTube</span>
             </h2>
             <div id="YouTubeWillixauTrigger" class="option-box" >
-                <img src="Assets/User.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/User.png" class="box-iconC" alt="Ico">
                 <span>Willixau</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
             <div id="YouTubeWillixau-musicTrigger" class="option-box">
-                <img src="Assets/User.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/User.png" class="box-iconC" alt="Ico">
                 <span>Willixau Music</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
             <div id="YouTubeWillixau-personalTrigger" class="option-box">
-                <img src="Assets/User.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/User.png" class="box-iconC" alt="Ico">
                 <span>Willixau Personal</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
@@ -267,12 +289,12 @@
                 <span>Discord</span>
             </h2>
             <div id="DiscordProfileTrigger" class="option-box" >
-                <img src="Assets/User.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/User.png" class="box-iconC" alt="Ico">
                 <span>Profile</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
             <div id="DiscordHomeTrigger" class="option-box">
-                <img src="Assets/Home (Game).png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/Home (Game).png" class="box-iconC" alt="Ico">
                 <span>Home Server</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
@@ -284,22 +306,22 @@
                 <span>Geometry Dash</span>
             </h2>
             <div id="DiscordUsername" class="option-box" >
-                <img src="Assets/User.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/User.png" class="box-iconC" alt="Ico">
                 <span>Username: 00willixau00</span>
             </div>
             <div id="DiscordUserid" class="option-box">
-                <img src="Assets/ID.png" id="RoundedIco" class="box-icon" alt="Ico">
+                <img src="Assets/ID.png" class="box-iconC" alt="Ico">
                 <span>User ID: 219458795</span>
             </div>
         </div>
     </div>
 </section>
 <div class="texte-bas-gauche">
-        © 2026 Willixau - Ver 0.5.5
+        © 2026 Willixau
     </div>
 <script src="script.js"></script>
 <div id="Credits">
-    <img src="Assets/Willixau.gif" id="ProfileHistory5Ico" alt="Ico" class="logo-bas-droite">
+    <img src="Assets/Willixau.gif" id="ProfileHistory5Ico" alt="Ico2" class="logo-bas-droite">
     <h1 class="logo-text"></h1>
 </div>
 </body>

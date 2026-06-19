@@ -5,6 +5,27 @@
   100% { transform: translateY(0px); }
 }
 
+#Status {
+    font-family:sans-serif;
+    text-align: left;
+    position:absolute;
+    margin-top: 0px;
+}
+
+#Build {
+    font-family:sans-serif;
+    text-align: left;
+    position:absolute;
+    margin-top: 15px;
+}
+
+#Version {
+    font-family:sans-serif;
+    text-align: left;
+    position:absolute;
+    margin-top: 30px;
+}
+
 body {
     color: white;
     text-align: center;
@@ -69,6 +90,10 @@ body {
     height: 550px;
 }
 
+.hero.projects-tall {
+    height: 300px;
+}
+
 .hero.social-tall {
     height: 550px;
 }
@@ -102,6 +127,10 @@ body {
     transform: translateX(-100%); 
 }
 
+.show-projects {
+    transform: translateX(-100%); 
+}
+
 .show-roblox {
     transform: translateX(-150%); 
 }
@@ -131,54 +160,81 @@ body {
     margin-bottom: 30px;
 }
 
+#projects-view h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
 div#home-view.view {
   cursor: pointer;
+  display: inline-flex;
   align-items: center;
-  vertical-align: middle;
+  gap: 13px;
+  flex-wrap: wrap;
+  padding: 25px;
 }
 
 div#menu-view.view {
   vertical-align: middle;
   padding-top: 90px;
+  align-content:center;
 }
 
 div#about-view.view {
   --vertical-align: middle;
   padding-top: 140px;
+  align-content:center;
+}
+
+div#projects-view.view {
+  vertical-align: middle;
+  padding-top: 90px;
+  align-content:center;
 }
 
 div#social-view.view {
   vertical-align: middle;
   padding-top: 90px;
+  align-content:center;
 }
 
 div#roblox-view.view {
   vertical-align: middle;
   padding-top: 120px;
+  align-content:center;
 }
 
 div#youtube-view.view {
   vertical-align: middle;
   padding-top: 120px;
+  align-content:center;
 }
 
 div#discord-view.view {
   vertical-align: middle;
   padding-top: 120px;
+  align-content:center;
 }
 
 div#geometrydash-view.view {
   vertical-align: middle;
   padding-top: 120px;
+  align-content:center;
+}
+
+img#AboutOptionIco.box-icon {
+    width: 32px;
+    height: 32px;
+}
+
+img#ProjectsOptionIco.box-icon {
+    width: 40px;
+    height: 40px;
 }
 
 img#SocialOptionIco.box-icon {
     width: 40px;
     height: 40px;
-}
-img#AboutOptionIco.box-icon {
-    width: 32px;
-    height: 32px;
 }
 
 img#MenuOptionIco.box-icon {
@@ -216,7 +272,8 @@ img#GDOptionIco.box-icon {
 
 /* On cache toutes les autres vues super loin (10+) pour qu'elles ne s'affichent pas par erreur */
 #about-view { order: 10; }
-#social-view { order: 11; }
+#projects-view { order: 11; }
+#social-view { order: 12; }
 #roblox-view { order: 20; }
 #youtube-view { order: 21; }
 #discord-view { order: 22; }
@@ -224,6 +281,7 @@ img#GDOptionIco.box-icon {
 
 /* 2. SLOT 3 (Translation -100%) : About ou Social */
 .about-active-order #about-view { order: 3; }
+.projects-active-order #projects-view { order: 3; }
 .social-active-order #social-view { order: 3; }
 
 /* 3. SLOT 4 (Translation -150%) : Les réseaux spécifiques */
@@ -288,7 +346,7 @@ i.fa-solid.fa-envelope {
 .hero {
     display: Block;
     margin: auto;
-    width: 80%;
+    width: 90%;
     max-width: 800px;
     text-align: center;
     background-color: rgba(28, 28, 28, 0.85);
@@ -299,6 +357,7 @@ i.fa-solid.fa-envelope {
     overflow: hidden;
     height: 300px; 
     transition: height 0.35s ease-in-out;
+    align-items: center;
 }
 
 /* =========================================
@@ -314,17 +373,6 @@ body section p {
   font-size: 30px;
   padding: 0px;
   margin: 0px;
-}
-
-.cta-button {
-    margin-top: 20px;
-    padding: 10px 25px;
-    background-color: transparent;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 1rem;
 }
 
 .option-box {
@@ -444,7 +492,8 @@ body section p {
 #Willixau-title {
     font-size: 4.2rem;
     user-select: none;
-    padding-top: 25px;
+    --margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 #Willixau-description {
@@ -462,6 +511,20 @@ img.box-icon {
     object-fit: contain;
     display: flex;
 }
+
+img.box-iconC {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: flex;
+    user-select: none;
+    border-radius: 6px;
+}
+
+img#RoundedIco.box-icon {
+    border-radius: 6px;
+}
+
 
 .btn-press {
     /* Assure une transition fluide pour l'effet */
@@ -505,14 +568,23 @@ img.box-icon {
 
 button#btn-explore.cta-button {
   user-select: none;
-}
-
-img#RoundedIco.box-icon {
-    border-radius: 6px;
+  margin-top: 15px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .box-icon {
     user-select: none;
+}
+
+.box-icon4 {
+    width: 150px;
+    height: 150px;
+    padding: 0;
 }
 
 #Externe.box-icon {
@@ -613,4 +685,16 @@ img.box-icon3 {
     object-fit: contain;
     display: grid;
     margin-inline: auto;
+}
+
+#Home-Profile {
+    border-radius: 100px;
+    height: min-content;
+    width:22%;
+    min-width: 75px;
+    user-select: none;
+}
+
+#WillixauStuff {
+    height: 60%;
 }

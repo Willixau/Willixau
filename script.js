@@ -6,6 +6,7 @@ const heroSection = document.querySelector('.hero');
 // Buttons Menu
 const SocialTrigger = document.querySelector("#SocialTrigger");
 const AboutTrigger = document.querySelector("#AboutTrigger")
+const ProjectsTrigger = document.querySelector("#ProjectsTrigger")
 
 const RobloxTrigger = document.querySelector("#RobloxTrigger");
 const YoutubeTrigger = document.querySelector("#YoutubeTrigger");
@@ -83,6 +84,7 @@ function updateBackBtnState() {
     // Le bouton s'active si on est sur n'importe quelle vue autre que l'accueil
     const isMenuVisible = wrapper.classList.contains('show-menu') ||
                           wrapper.classList.contains('show-about') || 
+                          wrapper.classList.contains('show-projects') || 
                           wrapper.classList.contains('show-social') || 
                           wrapper.classList.contains('show-roblox') ||
                           wrapper.classList.contains('show-youtube') ||
@@ -98,6 +100,10 @@ exploreBtn.addEventListener('click', () => {
 
 AboutTrigger.addEventListener('click', () => {
     window.location.hash = "About"; 
+});
+
+ProjectsTrigger.addEventListener('click', () => {
+    window.location.hash = "Projects"; 
 });
 
 SocialTrigger.addEventListener('click', () => {
@@ -137,10 +143,13 @@ backBtn.addEventListener('click', (event) => {
         window.location.hash = "Social";
     } 
     else if (window.location.hash === "#Social") {
-        window.location.hash = "Menu"; // Recule vers le menu principal
+        window.location.hash = "Menu";
+    } 
+    else if (window.location.hash === "#Projects") {
+        window.location.hash = "Menu";
     } 
     else if (window.location.hash === "#About") {
-        window.location.hash = "Menu"; // Recule vers le menu principal
+        window.location.hash = "Menu";
     } 
     else {
         // Recule vers l'accueil et nettoie l'URL
@@ -152,8 +161,8 @@ backBtn.addEventListener('click', (event) => {
 // 4. Mise à jour de l'interface globale selon l'URL
 function updateInterfaceBasedOnHash() {
     // A. Nettoyage complet des affichages
-    wrapper.classList.remove('show-menu', 'show-about', 'show-social', 'show-roblox', 'show-youtube', 'show-discord', 'show-geometrydash');
-    heroSection.classList.remove('hero-tall', 'about-tall', 'social-tall', 'roblox-tall', 'youtube-tall', 'discord-tall', 'geometrydash-tall');
+    wrapper.classList.remove('show-menu', 'show-about', 'show-projects', 'show-social', 'show-roblox', 'show-youtube', 'show-discord', 'show-geometrydash');
+    heroSection.classList.remove('hero-tall', 'about-tall', 'projects-tall', 'social-tall', 'roblox-tall', 'youtube-tall', 'discord-tall', 'geometrydash-tall');
 
     // Petite astuce pour écrire moins de code !
     const hash = window.location.hash;
@@ -165,6 +174,9 @@ function updateInterfaceBasedOnHash() {
     } else if (hash === "#About") {
         wrapper.classList.add('show-about', 'about-active-order');
         heroSection.classList.add('about-tall');
+    } else if (hash === "#Projects") {
+        wrapper.classList.add('show-projects', 'projects-active-order');
+        heroSection.classList.add('projects-tall');
     } else if (hash === "#Social") {
         wrapper.classList.add('show-social', 'social-active-order');
         heroSection.classList.add('social-tall');
@@ -190,6 +202,7 @@ function updateInterfaceBasedOnHash() {
     setTimeout(() => {
         // On retire l'ordre de About si on ne l'utilise plus
         if (hash !== "#About") wrapper.classList.remove('about-active-order');
+        if (hash !== "#Projects") wrapper.classList.remove('projects-active-order');
         
         // Magie : On garde Social actif si on est sur Social OU sur un de ses réseaux enfants
         if (hash !== "#Social" && hash !== "#Roblox" && hash !== "#YouTube" && hash !== "#Discord" && hash !== "#GeometryDash") {

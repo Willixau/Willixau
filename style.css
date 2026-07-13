@@ -94,6 +94,10 @@ body {
     height: 300px;
 }
 
+.hero.mozaikplus-tall {
+    height: 550px;
+}
+
 .hero.social-tall {
     height: 550px;
 }
@@ -129,6 +133,10 @@ body {
 
 .show-projects {
     transform: translateX(-100%); 
+}
+
+.show-mozaikplus {
+    transform: translateX(-150%); 
 }
 
 .show-roblox {
@@ -192,6 +200,12 @@ div#projects-view.view {
   align-content:center;
 }
 
+div#mozaikplus-view.view {
+  --vertical-align: middle;
+  padding-top: 140px;
+  align-content:center;
+}
+
 div#social-view.view {
   vertical-align: middle;
   padding-top: 90px;
@@ -228,6 +242,11 @@ img#AboutOptionIco.box-icon {
 }
 
 img#ProjectsOptionIco.box-icon {
+    width: 40px;
+    height: 40px;
+}
+
+img#MozaikPlusOptionIco.box-icon {
     width: 40px;
     height: 40px;
 }
@@ -278,6 +297,7 @@ img#GDOptionIco.box-icon {
 #youtube-view { order: 21; }
 #discord-view { order: 22; }
 #geometrydash-view { order: 23; }
+#mozaikplus-view { order: 24; }
 
 /* 2. SLOT 3 (Translation -100%) : About ou Social */
 .about-active-order #about-view { order: 3; }
@@ -289,6 +309,7 @@ img#GDOptionIco.box-icon {
 .youtube-active-order #youtube-view { order: 4; }
 .discord-active-order #discord-view { order: 4; }
 .geometrydash-active-order #geometrydash-view { order: 4; }
+.mozaikplus-active-order #mozaikplus-view { order: 4; }
 
 /* =========================================
    NAVBAR

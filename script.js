@@ -8,6 +8,8 @@ const SocialTrigger = document.querySelector("#SocialTrigger");
 const AboutTrigger = document.querySelector("#AboutTrigger")
 const ProjectsTrigger = document.querySelector("#ProjectsTrigger")
 
+const MozaikPlusTrigger = document.querySelector("#MozaikPlusTrigger");
+
 const RobloxTrigger = document.querySelector("#RobloxTrigger");
 const YoutubeTrigger = document.querySelector("#YoutubeTrigger");
 const DiscordTrigger = document.querySelector("#DiscordTrigger");
@@ -89,7 +91,8 @@ function updateBackBtnState() {
                           wrapper.classList.contains('show-roblox') ||
                           wrapper.classList.contains('show-youtube') ||
                           wrapper.classList.contains('show-discord') ||
-                          wrapper.classList.contains('show-geometrydash');
+                          wrapper.classList.contains('show-geometrydash') ||
+                          wrapper.classList.contains('show-mozaikplus');
     backBtn.classList.toggle('disabled', !isMenuVisible);
 }
 
@@ -104,6 +107,10 @@ AboutTrigger.addEventListener('click', () => {
 
 ProjectsTrigger.addEventListener('click', () => {
     window.location.hash = "Projects"; 
+});
+
+MozaikPlusTrigger.addEventListener('click', () => {
+    window.location.hash = "MozaikPlus"; 
 });
 
 SocialTrigger.addEventListener('click', () => {
@@ -148,6 +155,12 @@ backBtn.addEventListener('click', (event) => {
     else if (window.location.hash === "#Projects") {
         window.location.hash = "Menu";
     } 
+    else if (window.location.hash === "#Projects") {
+        window.location.hash = "Menu";
+    } 
+    else if (window.location.hash === "#MozaikPlus") {
+        window.location.hash = "Projects";
+    } 
     else if (window.location.hash === "#About") {
         window.location.hash = "Menu";
     } 
@@ -161,8 +174,8 @@ backBtn.addEventListener('click', (event) => {
 // 4. Mise à jour de l'interface globale selon l'URL
 function updateInterfaceBasedOnHash() {
     // A. Nettoyage complet des affichages
-    wrapper.classList.remove('show-menu', 'show-about', 'show-projects', 'show-social', 'show-roblox', 'show-youtube', 'show-discord', 'show-geometrydash');
-    heroSection.classList.remove('hero-tall', 'about-tall', 'projects-tall', 'social-tall', 'roblox-tall', 'youtube-tall', 'discord-tall', 'geometrydash-tall');
+    wrapper.classList.remove('show-menu', 'show-about', 'show-projects', 'show-mozaikplus', 'show-social', 'show-roblox', 'show-youtube', 'show-discord', 'show-geometrydash');
+    heroSection.classList.remove('hero-tall', 'about-tall', 'projects-tall', 'mozaikplus-tall', 'social-tall', 'roblox-tall', 'youtube-tall', 'discord-tall', 'geometrydash-tall');
 
     // Petite astuce pour écrire moins de code !
     const hash = window.location.hash;
@@ -177,6 +190,9 @@ function updateInterfaceBasedOnHash() {
     } else if (hash === "#Projects") {
         wrapper.classList.add('show-projects', 'projects-active-order');
         heroSection.classList.add('projects-tall');
+    } else if (hash === "#MozaikPlus") {
+        wrapper.classList.add('show-mozaikplus', 'projects-active-order', 'mozaikplus-active-order');
+        heroSection.classList.add('mozaikplus-tall');
     } else if (hash === "#Social") {
         wrapper.classList.add('show-social', 'social-active-order');
         heroSection.classList.add('social-tall');
@@ -202,7 +218,7 @@ function updateInterfaceBasedOnHash() {
     setTimeout(() => {
         // On retire l'ordre de About si on ne l'utilise plus
         if (hash !== "#About") wrapper.classList.remove('about-active-order');
-        if (hash !== "#Projects") wrapper.classList.remove('projects-active-order');
+        if (hash !== "#Projects" && hash !== "#MozaikPlus") wrapper.classList.remove('projects-active-order');
         
         // Magie : On garde Social actif si on est sur Social OU sur un de ses réseaux enfants
         if (hash !== "#Social" && hash !== "#Roblox" && hash !== "#YouTube" && hash !== "#Discord" && hash !== "#GeometryDash") {
@@ -214,6 +230,7 @@ function updateInterfaceBasedOnHash() {
         if (hash !== "#YouTube") wrapper.classList.remove('youtube-active-order');
         if (hash !== "#Discord") wrapper.classList.remove('discord-active-order');
         if (hash !== "#GeometryDash") wrapper.classList.remove('geometrydash-active-order');
+        if (hash !== "#MozaikPlus") wrapper.classList.remove('mozaikplus-active-order');
 
         const allViews = document.querySelectorAll('.view');
         allViews.forEach(view => {

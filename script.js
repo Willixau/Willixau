@@ -9,6 +9,9 @@ const AboutTrigger = document.querySelector("#AboutTrigger")
 const ProjectsTrigger = document.querySelector("#ProjectsTrigger")
 
 const MozaikPlusTrigger = document.querySelector("#MozaikPlusTrigger");
+const RobloxHomeTrigger = document.querySelector("#RobloxHomeTrigger");
+const LearnMoreRoblox = document.querySelector("#LearnMoreRoblox");
+const GameRoblox = document.querySelector("#GameRoblox");
 
 const RobloxTrigger = document.querySelector("#RobloxTrigger");
 const YoutubeTrigger = document.querySelector("#YoutubeTrigger");
@@ -28,6 +31,14 @@ const YouTubeWillixauMusicTrigger = document.querySelector("#YouTubeWillixau-mus
 const YouTubeWillixauPersonalTrigger = document.querySelector("#YouTubeWillixau-personalTrigger");
 const DiscordProfileTrigger = document.querySelector("#DiscordProfileTrigger");
 const DiscordHomeTrigger = document.querySelector("#DiscordHomeTrigger");
+
+LearnMoreRoblox.addEventListener('click', () => {
+    window.open('https://create.roblox.com/docs/get-started', '_blank');
+})
+
+GameRoblox.addEventListener('click', () => {
+    window.open('https://www.roblox.com/games/101699826904489/Home', '_blank');
+})
 
 RobloxProfileTrigger.addEventListener('click', () => {
     window.open('https://www.roblox.com/users/1218746629/profile', '_blank');
@@ -92,7 +103,8 @@ function updateBackBtnState() {
                           wrapper.classList.contains('show-youtube') ||
                           wrapper.classList.contains('show-discord') ||
                           wrapper.classList.contains('show-geometrydash') ||
-                          wrapper.classList.contains('show-mozaikplus');
+                          wrapper.classList.contains('show-mozaikplus') ||
+                          wrapper.classList.contains('show-robloxhome');
     backBtn.classList.toggle('disabled', !isMenuVisible);
 }
 
@@ -111,6 +123,10 @@ ProjectsTrigger.addEventListener('click', () => {
 
 MozaikPlusTrigger.addEventListener('click', () => {
     window.location.hash = "MozaikPlus"; 
+});
+
+RobloxHomeTrigger.addEventListener('click', () => {
+    window.location.hash = "Home"; 
 });
 
 SocialTrigger.addEventListener('click', () => {
@@ -155,10 +171,10 @@ backBtn.addEventListener('click', (event) => {
     else if (window.location.hash === "#Projects") {
         window.location.hash = "Menu";
     } 
-    else if (window.location.hash === "#Projects") {
-        window.location.hash = "Menu";
-    } 
     else if (window.location.hash === "#MozaikPlus") {
+        window.location.hash = "Projects";
+    }
+    else if (window.location.hash === "#Home") {
         window.location.hash = "Projects";
     } 
     else if (window.location.hash === "#About") {
@@ -174,8 +190,8 @@ backBtn.addEventListener('click', (event) => {
 // 4. Mise à jour de l'interface globale selon l'URL
 function updateInterfaceBasedOnHash() {
     // A. Nettoyage complet des affichages
-    wrapper.classList.remove('show-menu', 'show-about', 'show-projects', 'show-mozaikplus', 'show-social', 'show-roblox', 'show-youtube', 'show-discord', 'show-geometrydash');
-    heroSection.classList.remove('hero-tall', 'about-tall', 'projects-tall', 'mozaikplus-tall', 'social-tall', 'roblox-tall', 'youtube-tall', 'discord-tall', 'geometrydash-tall');
+    wrapper.classList.remove('show-menu', 'show-about', 'show-projects', 'show-mozaikplus', 'show-robloxhome', 'show-social', 'show-roblox', 'show-youtube', 'show-discord', 'show-geometrydash');
+    heroSection.classList.remove('hero-tall', 'about-tall', 'projects-tall', 'mozaikplus-tall', 'robloxhome-tall', 'social-tall', 'roblox-tall', 'youtube-tall', 'discord-tall', 'geometrydash-tall');
 
     // Petite astuce pour écrire moins de code !
     const hash = window.location.hash;
@@ -193,11 +209,13 @@ function updateInterfaceBasedOnHash() {
     } else if (hash === "#MozaikPlus") {
         wrapper.classList.add('show-mozaikplus', 'projects-active-order', 'mozaikplus-active-order');
         heroSection.classList.add('mozaikplus-tall');
+    } else if (hash === "#Home") {
+        wrapper.classList.add('show-robloxhome', 'projects-active-order', 'robloxhome-active-order');
+        heroSection.classList.add('robloxhome-tall');
     } else if (hash === "#Social") {
         wrapper.classList.add('show-social', 'social-active-order');
         heroSection.classList.add('social-tall');
     } else if (hash === "#Roblox") {
-        // NOUVEAU : On garde "social-active-order" pour que Social reste au Slot 3 derrière Roblox !
         wrapper.classList.add('show-roblox', 'social-active-order', 'roblox-active-order');
         heroSection.classList.add('roblox-tall');
     } else if (hash === "#YouTube") {
@@ -218,7 +236,7 @@ function updateInterfaceBasedOnHash() {
     setTimeout(() => {
         // On retire l'ordre de About si on ne l'utilise plus
         if (hash !== "#About") wrapper.classList.remove('about-active-order');
-        if (hash !== "#Projects" && hash !== "#MozaikPlus") wrapper.classList.remove('projects-active-order');
+        if (hash !== "#Projects" && hash !== "#Home" && hash !== "#MozaikPlus") wrapper.classList.remove('projects-active-order');
         
         // Magie : On garde Social actif si on est sur Social OU sur un de ses réseaux enfants
         if (hash !== "#Social" && hash !== "#Roblox" && hash !== "#YouTube" && hash !== "#Discord" && hash !== "#GeometryDash") {
@@ -231,6 +249,7 @@ function updateInterfaceBasedOnHash() {
         if (hash !== "#Discord") wrapper.classList.remove('discord-active-order');
         if (hash !== "#GeometryDash") wrapper.classList.remove('geometrydash-active-order');
         if (hash !== "#MozaikPlus") wrapper.classList.remove('mozaikplus-active-order');
+        if (hash !== "#Home") wrapper.classList.remove('robloxhome-active-order');
 
         const allViews = document.querySelectorAll('.view');
         allViews.forEach(view => {

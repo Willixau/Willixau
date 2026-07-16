@@ -98,6 +98,10 @@ body {
     height: 550px;
 }
 
+.hero.robloxhome-tall {
+    height: 550px;
+}
+
 .hero.social-tall {
     height: 550px;
 }
@@ -136,6 +140,10 @@ body {
 }
 
 .show-mozaikplus {
+    transform: translateX(-150%); 
+}
+
+.show-robloxhome {
     transform: translateX(-150%); 
 }
 
@@ -206,6 +214,12 @@ div#mozaikplus-view.view {
   align-content:center;
 }
 
+div#robloxhome-view.view {
+  --vertical-align: middle;
+  padding-top: 140px;
+  align-content:center;
+}
+
 div#social-view.view {
   vertical-align: middle;
   padding-top: 90px;
@@ -249,6 +263,13 @@ img#ProjectsOptionIco.box-icon {
 img#MozaikPlusOptionIco.box-icon {
     width: 40px;
     height: 40px;
+    border-radius: 4px;
+}
+
+img#robloxhomeOptionIco.box-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
 }
 
 img#SocialOptionIco.box-icon {
@@ -298,6 +319,7 @@ img#GDOptionIco.box-icon {
 #discord-view { order: 22; }
 #geometrydash-view { order: 23; }
 #mozaikplus-view { order: 24; }
+#robloxhome-view { order: 25; }
 
 /* 2. SLOT 3 (Translation -100%) : About ou Social */
 .about-active-order #about-view { order: 3; }
@@ -310,6 +332,7 @@ img#GDOptionIco.box-icon {
 .discord-active-order #discord-view { order: 4; }
 .geometrydash-active-order #geometrydash-view { order: 4; }
 .mozaikplus-active-order #mozaikplus-view { order: 4; }
+.robloxhome-active-order #robloxhome-view { order: 4; }
 
 /* =========================================
    NAVBAR
@@ -507,7 +530,7 @@ body section p {
   font-weight: Normal;
   display: flex;
   gap: 15px;
-  user-select: all;
+  -webkit-user-drag: none;
 }
 
 #Willixau-title {
@@ -531,6 +554,8 @@ img.box-icon {
     height: 30px;
     object-fit: contain;
     display: flex;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 img.box-iconC {
@@ -540,6 +565,7 @@ img.box-iconC {
     display: flex;
     user-select: none;
     border-radius: 6px;
+    -webkit-user-drag: none;
 }
 
 img#RoundedIco.box-icon {
@@ -564,6 +590,7 @@ img#RoundedIco.box-icon {
     z-index: 9999; /* Permet de s'assurer que le logo est au-dessus du reste */
     width: 40px; /* Ajustez la taille de votre logo */
     user-select: none;
+    -webkit-user-drag: none;
 }
 
 .logo-text {
@@ -718,4 +745,18 @@ img.box-icon3 {
 
 #WillixauStuff {
     height: 60%;
+}
+
+#link {
+    color: white;
+}
+
+#LearnMoreRoblox {
+    align-items: center;
+    justify-content: center;
+}
+
+#GameRoblox {
+    align-items: center;
+    justify-content: center;
 }

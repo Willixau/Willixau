@@ -12,13 +12,9 @@
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         .texte-bas-gauche {
-            /* Fixe la position par rapport à la fenêtre */
             position: fixed;
-            /* Le place tout en bas de l'écran */
             bottom: 20px;
-            /* Le place sur le côté gauche */
             left: 20px;
-            /* Ajoute un peu de couleur et de style pour la lisibilité */
             color: #333;
             font-family: Arial, sans-serif;
             font-size: 16px;
@@ -26,15 +22,16 @@
             padding: 10px 15px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            /* S'assure que le texte passe au-dessus des autres éléments */
             z-index: 1000;
         }
     </style>
 </head>
 <body>
-<h5 id="Status">Pre-alpha</h5>
-<h5 id="Build">Build 18</h5>
-<h5 id="Version">Ver 0.5.8</h5>
+<h5 id="Status">Alpha</h5>
+<h5 id="Build">Build 19</h5>
+<h5 id="Version">Ver 0.5.9</h5>
+<h5 id="Updated">Updated: 17/07/2026</h5>
+<button id="lang-toggle" class="cta-button">EN</button>
 
     <video autoplay muted loop playsinline id="bg-video">
         <source src="https://video.wixstatic.com/video/08b457_d1812cafa79e4d05a5413608da10fb0d/1080p/mp4/file.mp4" type="video/mp4">
@@ -59,7 +56,7 @@
             <div id="WillixauStuff">
             <h1 id="Willixau-title">Willixau</h1>
             <p id="Willixau-description">00Willixau00</p>
-            <button id="btn-explore" class="cta-button">Interact to begin</button>
+            <button id="btn-explore" class="cta-button" data-i18n="btn-explore"></button>
             </div>
         </div>
 <!--Menu-->
@@ -70,38 +67,38 @@
             </h2>
             <div id="AboutTrigger" class="option-box">
                 <img src="Assets/User.png" class="box-icon" alt="Ico">
-                <span>About</span>
+                <span id="TextAbout" data-i18n="TextAbout"></span>
             </div>
             <div id="ProjectsTrigger" class="option-box">
                 <img src="Assets/Grid.png" class="box-icon" alt="Ico">
-                <span>Projects</span>
+                <span id="TextProjects" data-i18n="TextProjects"></span>
             </div>
             <div id="SocialTrigger" class="option-box">
                 <img src="Assets/Social-Media.png" class="box-icon" alt="Ico">
-                <span>Social Media & platforms</span>
+                <span id="TextSocial" data-i18n="TextSocial"></span>
             </div>
             <div id="School-RessourcesTrigger" class="option-box">
                 <img src="Assets/Ressources.png" class="box-icon" alt="Ico">
-                <span>School Ressources (Coming Soon)</span>
+                <span id="TextSchool" data-i18n="TextSchool"></span>
             </div>
             <div id="SupportTrigger" class="option-box">
                 <img src="Assets/Support.png" class="box-icon" alt="Ico">
-                <span>Support (Coming Soon)</span>
+                <span id="TextSupport" data-i18n="TextSupport"></span>
             </div>
             <div id="DonateTrigger" class="option-box">
                 <img src="Assets/Donate.png" class="box-icon" alt="Ico">
-                <span>Donate (Coming Soon, look in my previous website)</span>
+                <span id="TextDonate" data-i18n="TextDonate"></span>
             </div>
             <div id="ContactTrigger" class="option-box">
                 <img src="Assets/Phone.png" class="box-icon" alt="Ico">
-                <span>Contact (Coming Soon)</span>
+                <span id="TextContact" data-i18n="TextContact"></span>
             </div>
         </div>
 
         <div id="projects-view" class="view">
             <h2 id="OptionsTitle">
                 <img src="Assets/Grid.png" id="ProjectsOptionIco" class="box-icon" alt="Ico">
-                <span>Projects</span>
+                <span id="TextProjects" data-i18n="TextProjects"></span>
             </h2>
             <div id="RobloxHomeTrigger" class="option-box">
                 <img src="Assets/Home (Game).png" class="box-iconC" alt="Ico">
@@ -119,34 +116,34 @@
                 <span>Mozaïk Plus</span>
             </h2>
             <div id="AboutBox" class="option-text">
-                <h4 id="TextParagraph">Mozaïk Plus will be an application and Chrome extension to better familiarize students with a complete redesign of the interface and the addition of relevant features on Mozaïk Portail.</h4>
+                <h4 id="TextParagraph" data-i18n="MozaikText1"></h4>
                 
-                <h2 id="TextTitle">Features </h2>
+                <h2 id="TextTitle" data-i18n="MozaikText2"></h2>
 
                 <ul>
-                    <li id="TextParagraph">Dark mode</li>
-                    <li id="TextParagraph">Sidebar / Bottom navigation bar for navigation.</li>
-                    <li id="TextParagraph">Archive and restore your messages.</li>
-                    <li id="TextParagraph">Results spoilers.</li>
-                    <li id="TextParagraph">Results colors</li>
-                    <li id="TextParagraph">Settings</li>
-                    <li id="TextParagraph">Disable workspaces, even after logging in. (Customizable in settings)</li>
-                    <li id="TextParagraph">Scrolling frames (Instead of scrolling the entire website in certain pages)</li>
-                    <li id="TextParagraph">Disable the "See previous terms" button in the "Assignment Marks" section of your classes. Instead, the 3 steps for the year will be displayed.</li>
-                    <li id="TextParagraph">And much more!</li>
+                    <li id="TextParagraph" data-i18n="MozaikText3">Dark mode</li>
+                    <li id="TextParagraph" data-i18n="MozaikText4">Sidebar / Bottom navigation bar for navigation.</li>
+                    <li id="TextParagraph" data-i18n="MozaikText5">Archive and restore your messages.</li>
+                    <li id="TextParagraph" data-i18n="MozaikText6">Results spoilers.</li>
+                    <li id="TextParagraph" data-i18n="MozaikText7">Results colors</li>
+                    <li id="TextParagraph" data-i18n="MozaikText8">Settings</li>
+                    <li id="TextParagraph" data-i18n="MozaikText9">Disable workspaces, even after logging in. (Customizable in settings)</li>
+                    <li id="TextParagraph" data-i18n="MozaikText10">Scrolling frames (Instead of scrolling the entire website in certain pages)</li>
+                    <li id="TextParagraph" data-i18n="MozaikText11">Disable the "See previous terms" button in the "Assignment Marks" section of your classes. Instead, the 3 steps for the year will be displayed.</li>
+                    <li id="TextParagraph" data-i18n="MozaikText12">And much more!</li>
                 </ul>
 
-                <h2 id="TextTitle">Appearance</h2>
+                <h2 id="TextTitle" data-i18n="MozaikText13">Appearance</h2>
 
                 <ul>
-                    <li id="TextParagraph">Animations when interacting with buttons</li>
-                    <li id="TextParagraph">Background image</li>
-                    <li id="TextParagraph">Transitions</li>
-                    <li id="TextParagraph">New Icons</li>
-                    <li id="TextParagraph">Icons next to text in "My classes" section</li>
+                    <li id="TextParagraph" data-i18n="MozaikText14">Animations when interacting with buttons</li>
+                    <li id="TextParagraph" data-i18n="MozaikText15">Background image</li>
+                    <li id="TextParagraph" data-i18n="MozaikText16">Transitions</li>
+                    <li id="TextParagraph" data-i18n="MozaikText17">New Icons</li>
+                    <li id="TextParagraph" data-i18n="MozaikText18">Icons next to text in "My classes" section</li>
                 </ul>
 
-                <h4 id="TextParagraph">More info coming soon!</h4>
+                <h4 id="TextParagraph" data-i18n="MozaikText19">More info coming soon!</h4>
 
             </h2>
             </div>
@@ -158,75 +155,71 @@
                 <span>Home</span>
             </h2>
             <div id="AboutBox" class="option-text">
-                <h4 id="TextParagraph">Home is an experiment created in late 2025 for the sole purpose of recreating as many Roblox interfaces as possible in order to obtain more information using the many APIs provided by Roblox.</h4>
+                <h4 id="TextParagraph" data-i18n="RobloxhomeText1"></h4>
                 
-                <h2 id="TextTitle">What is Roblox ?</h2>
+                <h2 id="TextTitle" data-i18n="RobloxhomeText2"></h2>
 
-                <h4 id="TextParagraph">Roblox is a platform that offers billions of experiences created by various developers and users. Thanks to its simple and intuitive programming language, <a id="link" href="https://luau.org/" target="_blank">Luau</a> is ideal for beginners. To learn more, visit the developers' website.</h4>
+                <h4 id="TextParagraph" data-i18n="RobloxhomeText3"></h4>
 
                 <div id="LearnMoreRoblox" class="option-box">
-                <span>Learn More</span>
+                <span data-i18n="RobloxhomeText4"></span>
                 </div>
 
-                <h2 id="TextTitle">How it works ?</h2>
+                <h2 id="TextTitle" data-i18n="RobloxhomeText5"></h2>
 
-                <h4 id="TextParagraph">With the different actions available, you can join experiences, listen to music, change your avatar and take a look at your friends and players in the platform. Here some pictures and videos of the features:</h4>
+                <h4 id="TextParagraph" data-i18n="RobloxhomeText6"></h4>
 
                  <div id="BackgroundHistory1" class="option-box2">
                 <video loop controls width="100%" id="VideoHistory">
                 <source src="Assets/RobloxHomePreview.mp4" type="video/mp4">
                 Votre navigateur ne prend pas en charge la lecture de vidéos.
                 </video>
-                <span>Overview</span>
+                <span data-i18n="RobloxhomeText7"></span>
                 </div>
 
                 <div id="RobloxHome1" class="option-box2">
                 <img src="Assets/RobloxHomeMusicAction.png" id="DesktopHistoryIco" class="box-icon3" alt="Ico">
-                <span>Music Action</span>
+                <span data-i18n="RobloxhomeText8"></span>
                 </div>
 
                 <div id="RobloxHome2" class="option-box2">
                 <img src="Assets/RobloxHomePlayersFriendsAction.png" id="DesktopHistoryIco" class="box-icon3" alt="Ico">
-                <span>Players & Friends Action</span>
+                <span data-i18n="RobloxhomeText9"></span>
                 </div>
 
                 <div id="RobloxHome3" class="option-box2">
                 <img src="Assets/RobloxHomePlayAction.png" id="DesktopHistoryIco" class="box-icon3" alt="Ico">
-                <span>Play Action</span>
+                <span data-i18n="RobloxhomeText10"></span>
                 </div>
 
-                <h2 id="TextTitle">Is the game available ?</h2>
-                <h4 id="TextParagraph">Not yet. I want to make sure everything is working as expected before releasing it. You can visit the game's page to stay updated.</h4>
+                <h2 id="TextTitle" data-i18n="RobloxhomeText11"></h2>
+                <h4 id="TextParagraph" data-i18n="RobloxhomeText12"></h4>
                 
                 <div id="GameRoblox" class="option-box">
-                <span>View on Roblox</span>
+                <span data-i18n="RobloxhomeText13"></span>
                 </div>
                 
-                <h6 id="TextParagraph">Home, everything in one experience.</h6>
+                <h6 id="TextParagraph" data-i18n="RobloxhomeText14"></h6>
 
             </div>
-
-            
-            
         </div>
 
         <div id="about-view" class="view">
             <h2 id="OptionsTitle">
                 <img src="Assets/User.png" id="AboutOptionIco" class="box-icon" alt="Ico">
-                <span>About</span>
+                <span data-i18n="AboutText1"></span>
             </h2>
             <div id="AboutBox" class="option-text">
-                <span id="TextParagraph">I love making things like programming, editing and more.</h4>
+                <span id="TextParagraph" data-i18n="AboutText2"></span>
+                <h2 id="TextTitle" data-i18n="AboutText3"></h2>
                 
-                <h2 id="TextTitle">My IT story </h2>
+                <h4 id="TextParagraph" data-i18n="AboutText4"></h4>
+                <h4 id="TextParagraph" data-i18n="AboutText5"></h4>
+                <h4 id="TextParagraph" data-i18n="AboutText6"></h4>
+                <h2 id="TextTitle" data-i18n="AboutText7"></h2>
+                <h4 id="TextParagraph" data-i18n="AboutText8"></h4>
                 
-                <h4 id="TextParagraph">When I was young, I developed a passion for computers, and I've grown every year since. It all started by exploring my computer environment to discover what would happen if I clicked a button. My curiosity led me to start creating user interfaces (UIs) with WIX, and I improved over time. Later, I created a game with two friends using the Construct 3 platform, and I quickly realized I loved creating interfaces. My two friends handled the gameplay while I created all the UI elements. This project lasted from November 2024 to July 2025. Then, I decided to gradually abandon it due to a lack of documentation and explanations, and because it was a bit complex. That's why, in August 2025, I created my first experience on Roblox Studio. Without realizing it, the knowledge I gained from Construct 3 made learning Luau much easier. In just three months, I mastered the language.</h4>
-                <h4 id="TextParagraph">After all that, in the beginning of 2026, I was tired of an old interface on a web page. This page was Mozaïk Portail (mozaikportail.ca). So I decided to install an extension named Stylebot to customize this website. But I quickly realized that was coding. So by the help of Google Gemini (AI), I learned how to code in CSS and the web page was beautiful. Soon, I will release an APK file for android devices and a extension file for desktop browsers to allow everyone enjoying my work. This will be called Mozaïk Plus. So after learning CSS, I got motivated to learn HTML and Javascript and that's why I started to create my own website with theses 3 languages (CSS + HTML + JS) that will remplace the WIX website.</h4>
-                <h4 id="TextParagraph">Ultimately, thanks to all the experience I've gained over the past three years, I'm helping the community and learning programming languages. I also make progress on my Roblox game Home, my website and Mozaïk Plus.</h4>
-                <h2 id="TextTitle">Why the name Willixau ?</h2>
-                <h4 id="TextParagraph">Back in 2023, instead of integrating my real name, I wanted to create a French username with the beginning of my real name with a special letter: X. So I started with "Chaine Willix" (the Willix channel) for at least five months until I realised it wasn't original enough. So that's why I wanted something with water. So in French, water is "eau". So, I went with Willixeau. Later, I removed the "e" in "eau" for a shorter username, and I added two zeros to be on the top of the player lists (because they're sorted alphabetically). So here is the result: 00willixau00. After that, I added a capital letter, changing it to '00Willixau00', and starting in Mars 2025, I finally kept it to only 'Willixau'.</h4>
-                
-                <h2 id="TextTitle">Logo history</h2>
+                <h2 id="TextTitle" data-i18n="AboutText9"></h2>
 
                 <div id="ProfileHistory0" class="option-box2">
                 <img src="Assets/WC 2022.jpg" id="ProfileHistory5Ico" class="box-icon2" alt="Ico">
@@ -234,64 +227,64 @@
                 </div>
                 <div id="ProfileHistory1" class="option-box2">
                 <img src="Assets/WillixauOriginal.png" class="box-icon2" alt="Ico">
-                <span>2023 - October 2024 (Still using for branding) </span>
+                <span data-i18n="AboutText10"></span>
                 </div>
                 <div id="ProfileHistory2" class="option-box2">
                 <img src="Assets/Willixau-Halloween.png" class="box-icon2" alt="Ico">
-                <span>October 2024 - December 2024</span>
+                <span data-i18n="AboutText11"></span>
                 </div>
                 <div id="ProfileHistory3" class="option-box2">
                 <img src="Assets/Willixau-Winter.png" class="box-icon2" alt="Ico">
-                <span>December 2024 - February 2025</span>
+                <span data-i18n="AboutText12"></span>
                 </div>
                 <div id="ProfileHistory4" class="option-box2">
                 <img src="Assets/Willixau-Valentine.png" class="box-icon2" alt="Ico">
-                <span>February 2025 - March 2025</span>
+                <span data-i18n="AboutText13"></span>
                 </div>
                 <div id="ProfileHistory5" class="option-box2">
                 <img src="Assets/Willixau.gif" id="ProfileHistory5Ico" class="box-icon2" alt="Ico">
-                <span>March 2025 - Today</span>
+                <span data-i18n="AboutText14"></span>
                 </div>
                 
-                <h2 id="TextTitle">Background History</h2>
+                <h2 id="TextTitle" data-i18n="AboutText15"></h2>
                 
                 <div id="BackgroundHistory1" class="option-box2">
                 <video loop controls autoplay width="100%" id="VideoHistory">
                 <source src="Assets/Background 2024.mp4" type="video/mp4">
                 Votre navigateur ne prend pas en charge la lecture de vidéos.
                 </video>
-                <span>February 2024 - June 2025</span>
+                <span data-i18n="AboutText16"></span>
                 </div>
                 <div id="BackgroundHistory2" class="option-box2">
                 <video loop controls autoplay width="100%" id="VideoHistory">
                 <source src="Assets/Background Current.mp4" type="video/mp4">
                 Votre navigateur ne prend pas en charge la lecture de vidéos.
                 </video>
-                <span>June 2025 - Today</span>
+                <span data-i18n="AboutText17"></span>
                 </div>
                 
-                <h2 id="TextTitle">Desktop Background History</h2>
+                <h2 id="TextTitle" data-i18n="AboutText18"></h2>
 
                 <div id="DestopHistory1" class="option-box2">
                 <img src="Assets/Desktop 2024.png" id="DesktopHistoryIco" class="box-icon3" alt="Ico">
-                <span>July 2024 - July 2025</span>
+                <span data-i18n="AboutText19"></span>
                 </div>
                 <div id="DestopHistory1" class="option-box2">
                 <img src="Assets/Desktop 2025.png" id="DesktopHistoryIco" class="box-icon3" alt="Ico">
-                <span>July 2025 - January 2026</span>
+                <span data-i18n="AboutText20"></span>
                 </div>
                 <div id="DestopHistory2" class="option-box2">
                 <img src="Assets/Desktop Current.png" id="DesktopHistoryIco" class="box-icon3" alt="Ico">
-                <span>January 2026 - Today</span>
+                <span data-i18n="AboutText21"></span>
                 </div>
             </h2>
             </div>
         </div>
-
+ 
         <div id="social-view" class="view">
-            <h2 id="OptionsTitle">
+            <h2 id="OptionsTitle"> 
                 <img src="Assets/Social-Media.png" id="SocialOptionIco" class="box-icon" alt="Ico">
-                <span>Social Media & platforms</span>
+                <span data-i18n="TextSocial"></span>
             </h2>
             <div id="RobloxTrigger" class="option-box" >
                 <img src="Assets/Roblox.png" class="box-iconC" alt="Ico">
@@ -343,17 +336,17 @@
             </h2>
             <div id="RobloxProfileTrigger" class="option-box" >
                 <img src="Assets/User.png" class="box-iconC" alt="Ico">
-                <span>Profile</span>
+                <span data-i18n="RobloxText1">Profile</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
             <div id="RobloxCommunityTrigger" class="option-box">
                 <img src="Assets/Players.png" class="box-iconC" alt="Ico">
-                <span>Community</span>
+                <span data-i18n="RobloxText2">Community</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
             <div id="RobloxGameTrigger" class="option-box">
                 <img src="Assets/Gamepad.png" class="box-iconC" alt="Ico">
-                <span>Game (Home)</span>
+                <span data-i18n="RobloxText3">Game (Home)</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
         </div>
@@ -387,12 +380,12 @@
             </h2>
             <div id="DiscordProfileTrigger" class="option-box" >
                 <img src="Assets/User.png" class="box-iconC" alt="Ico">
-                <span>Profile</span>
+                <span data-i18n="DiscordText1">Profile</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
             <div id="DiscordHomeTrigger" class="option-box">
                 <img src="Assets/Home (Game).png" class="box-iconC" alt="Ico">
-                <span>Home Server</span>
+                <span data-i18n="DiscordText2">Home Server</span>
                 <img src="Assets/Externe.png" id="Externe" class="box-icon" alt="Ico">
             </div>
         </div>
@@ -404,11 +397,11 @@
             </h2>
             <div id="DiscordUsername" class="option-box" >
                 <img src="Assets/User.png" class="box-iconC" alt="Ico">
-                <span>Username: 00willixau00</span>
+                <span data-i18n="GDText1">Username: 00willixau00</span>
             </div>
             <div id="DiscordUserid" class="option-box">
                 <img src="Assets/ID.png" class="box-iconC" alt="Ico">
-                <span>User ID: 219458795</span>
+                <span data-i18n="GDText2">User ID: 219458795</span>
             </div>
         </div>
     </div>

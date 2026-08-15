@@ -412,6 +412,7 @@ i.fa-solid.fa-envelope {
    ========================================= */
 
 .hero {
+    position: absolute;
     display: Block;
     margin: auto;
     width: 90%;
@@ -426,6 +427,7 @@ i.fa-solid.fa-envelope {
     height: 300px; 
     transition: height 0.35s ease-in-out;
     align-items: center;
+    z-index: 50;
 }
 
 /* =========================================

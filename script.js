@@ -7,8 +7,13 @@ const heroSection = document.querySelector('.hero');
 const SocialTrigger = document.querySelector("#SocialTrigger");
 const AboutTrigger = document.querySelector("#AboutTrigger")
 const ProjectsTrigger = document.querySelector("#ProjectsTrigger")
+const SchoolRessourcesTrigger = document.querySelector("#SchoolRessourcesTrigger")
+const SupportTrigger = document.querySelector("#SupportTrigger")
+const DonateTrigger = document.querySelector("#DonateTrigger")
+const ContactTrigger = document.querySelector("#ContactTrigger")
 
 const MozaikPlusTrigger = document.querySelector("#MozaikPlusTrigger");
+const DownloadMozaikPlusTrigger = document.querySelector("#DownloadMozaikPlusTrigger");
 const RobloxHomeTrigger = document.querySelector("#RobloxHomeTrigger");
 const LearnMoreRoblox = document.querySelector("#LearnMoreRoblox");
 const GameRoblox = document.querySelector("#GameRoblox");
@@ -32,22 +37,29 @@ const YouTubeWillixauPersonalTrigger = document.querySelector("#YouTubeWillixau-
 const DiscordProfileTrigger = document.querySelector("#DiscordProfileTrigger");
 const DiscordHomeTrigger = document.querySelector("#DiscordHomeTrigger");
 
+const YouTubeMozaikPlusTrigger = document.querySelector("#YouTubeMozaikPlusTrigger");
+const GitHubMozaikPlusTrigger = document.querySelector("#GitHubMozaikPlusTrigger");
+const BugReportTrigger = document.querySelector("#BugReportTrigger");
+const DownloadMozaikPlusAndroidTrigger = document.querySelector("#DownloadMozaikPlusAndroidTrigger");
+const DownloadMozaikPlusWebTrigger = document.querySelector("#DownloadMozaikPlusWebTrigger");
+
 const translations = {
     en: {
         "btn-explore": "Interact to begin",
+        "LanguageText": "Language:",
         "TextAbout": "About",
-        "TextProjects": "Projects",
+        "TextProjects": "Projects and solutions",
         "TextSocial": "Social Media & platforms",
-        "TextSchool": "School Ressources (Coming Soon)",
-        "TextSupport": "Support (Coming Soon)",
+        "TextSchool": "School Ressources",
+        "TextSupport": "Support",
         "TextDonate": "Donate (Coming Soon, look in my previous website)",
         "TextContact": "Contact (Coming Soon)",
-        "MozaikText1": "Mozaïk Plus will be an application and Chrome extension to better familiarize students with a complete redesign of the interface and the addition of relevant features on Mozaïk Portail.",
+        "MozaikText1": "Mozaïk Plus is an application and a web extension (for PC) to better familiarize students with a complete overhaul of the interface and the addition of relevant features on Mozaïk Portail.",
         "MozaikText2": "Features",
         "MozaikText3": "Dark mode",
-        "MozaikText4": "Sidebar / Bottom navigation bar for navigation.",
-        "MozaikText5": "Archive and restore your messages.",
-        "MozaikText6": "Results spoilers.",
+        "MozaikText4": "Sidebar / Bottom navigation bar for navigation",
+        "MozaikText5": "Archive and restore your messages",
+        "MozaikText6": "Results spoilers",
         "MozaikText7": "Results colors",
         "MozaikText8": "Settings",
         "MozaikText9": "Disable workspaces, even after logging in. (Customizable in settings)",
@@ -60,7 +72,31 @@ const translations = {
         "MozaikText16": "Transitions",
         "MozaikText17": "New Icons",
         "MozaikText18": "Icons next to text in \"My classes\" section",
-        "MozaikText19": "More info coming soon!",
+        "MozaikText19": "Download",
+        "MozaikText20": "Download Mozaïk Plus",
+        "MozaikText21": "Why isn't Mozaïk Plus available on the official app stores (Google Play Store or Chrome Web Store)?",
+        "MozaikText22": "The reason is simple: I'm 16 years old and therefore a minor. Legally, and according to the platforms' terms and conditions, I can't publish paid or official apps on the Google Play Store or Chrome Web Store under my own name without a company structure or strict parental consent. To make my work available to students in Quebec, I have to use secure alternatives: .apk files (for Android) and developer mode for the web extension.",
+        "MozaikText23": "Why isn't Mozaïk Plus available on iPhone?",
+        "MozaikText24": "Unlike Android, Apple doesn't offer a simple or free way to install apps outside of its official App Store. You have to subscribe to the Apple Developer Program, which costs $100 per year and requires you to be 18 years of age or older, which I'm not yet.",
+        "MozaikText25": "Can Mozaïk Plus collect personal data?",
+        "MozaikText26": "No, absolutely not. Mozaïk Plus aims solely to improve the design and usability of the school platform. You can check the source code at any time: either by inspecting the page with DevTools (F12 key on your keyboard), or by downloading the source code or the web version to examine the files line by line with complete transparency.",
+        "MozaikText27": "What should I do if I encounter a bug or problem?",
+        "MozaikText28": "If you experience a visual issue or malfunction, you can visit the project's GitHub page to open an issue or follow the latest updates. Mozaïk Plus also includes an automatic notification system that alerts you when a new version is available!",
+        "MozaikText29": "Links",
+        "MozaikText30": "Bugs and troubleshooting",
+        "MozaikText31": "Report an issue",
+        "MozaikText32": "Why do I get a \"Harmful App\" warning message during installation on Android?",
+        "MozaikText33": "Because I'm a minor, I don't have a commercially verified developer account with Google. Therefore, Android (via Google Play Protect) applies increased monitoring and sometimes issues false positives for apps that aren't from the official Play Store.",
+        "MozaikText34": "Mozaïk Plus is a completely safe app. If this warning appears during APK installation, don't worry: simply click \"More details,\" then select \"Install anyway\" to proceed with confidence.",
+        "MozaikText35": "Is Mozaïk Plus affiliated with GRICS?",
+        "MozaikText36": "No, Mozaïk Plus is not affiliated with GRICS.",
+        "DownloadMozaikText1": "Warnings",
+        "DownloadMozaikText2": "Mozaïk Plus is a solution for students in Quebec. If you are a teacher, administrator, or any other role on the Mozaïk Portal, your experience will be severely impacted and substandard if you use Mozaïk Plus.",
+        "DownloadMozaikText3": "Depending on your educational institution, Mozaïk may behave differently. For example, some elements, such as the \"Bus\" element or the \"Need to Talk?\" page, may display incorrectly or not at all. Therefore, expect to encounter unstable pages or interfaces.",
+        "DownloadMozaikText4": "Mozaïk Plus is an application available only in French.",
+        "DownloadMozaikText5": "Download the Android app",
+        "DownloadMozaikText6": "Download the web extension",
+        "DownloadMozaikText7": "Need help installing Mozaïk Plus on your browser?",
         "RobloxhomeText1": "Home is an experiment created in late 2025 for the sole purpose of recreating as many Roblox interfaces as possible in order to obtain more information using the many APIs provided by Roblox.",
         "RobloxhomeText2": "What is Roblox ?",
         "RobloxhomeText3": "Roblox is a platform that offers billions of experiences created by various developers and users. Thanks to its simple and intuitive programming language, <a id=\"link\" href=\"https://luau.org/\" target=\"_blank\">Luau</a> is ideal for beginners. To learn more, visit their official development website.",
@@ -107,19 +143,20 @@ const translations = {
     },
     fr: {
         "btn-explore": "Interagissez pour débuter",
+        "LanguageText": "Langue :",
         "TextAbout": "À propos",
-        "TextProjects": "Projets",
+        "TextProjects": "Projets et solutions",
         "TextSocial": "Réseaux sociaux et plateformes",
-        "TextSchool": "Ressources scolaires (À venir)",
-        "TextSupport": "Support (À venir)",
+        "TextSchool": "Ressources scolaires",
+        "TextSupport": "Support",
         "TextDonate": "Don (À venir, consultez mon site web précédent)",
         "TextContact": "Contact (À venir)",
-        "MozaikText1": "Mozaïk Plus sera une application et une extension Chrome pour mieux familiariser les étudiants avec une refonte complète de l'interface et l'ajout de fonctionnalités pertinentes sur Mozaïk Portail.",
+        "MozaikText1": "Mozaïk Plus est une application et une extension web (pour PC) permettant de mieux familiariser les étudiants avec une refonte complète de l'interface et l'ajout de fonctionnalités pertinentes sur Mozaïk Portail.",
         "MozaikText2": "Fonctionnalités",
         "MozaikText3": "Thème sombre",
-        "MozaikText4": "Barre de navigation latérale / inférieure pour la navigation.",
-        "MozaikText5": "Archiver et restaurer vos messages.",
-        "MozaikText6": "Spoilers de résultats.",
+        "MozaikText4": "Barre de navigation latérale / inférieure pour la navigation",
+        "MozaikText5": "Archiver et restaurer vos messages",
+        "MozaikText6": "Spoilers de résultats",
         "MozaikText7": "Couleurs de résultats",
         "MozaikText8": "Paramètres",
         "MozaikText9": "Désactiver les espaces de travail, même après une connexion. (Personnalisable dans les paramètres)",
@@ -132,7 +169,31 @@ const translations = {
         "MozaikText16": "Transitions",
         "MozaikText17": "Nouvelles icônes",
         "MozaikText18": "Icônes à côté du texte dans la section \"Mes cours\"",
-        "MozaikText19": "Plus d'informations à venir!",
+        "MozaikText19": "Télécharger",
+        "MozaikText20": "Télécharger Mozaïk Plus",
+        "MozaikText21": "Pourquoi Mozaïk Plus n'est pas disponible sur les boutiques officielles (Google Play Store ou Chrome Web Store) ?",
+        "MozaikText22": "La raison est simple : j'ai 16 ans et je suis donc mineur. Légalement et selon les conditions des plateformes, je ne peux pas publier d'applications payantes ou officielles sur le Google Play Store ou le Chrome Web Store sous mon propre nom sans structure d'entreprise ou accord parental lourd. Pour faire profiter de mon travail aux élèves du Québec, je dois donc passer par des alternatives sécurisées : les fichiers .apk (pour Android) et le mode développeur pour l'extension web.",
+        "MozaikText23": "Pourquoi Mozaïk Plus n'est pas disponible sur iPhone ?",
+        "MozaikText24": "Contrairement à Android, Apple n'offre pas de moyen simple ni gratuit d'installer des applications en dehors de son App Store officiel. Il faut obligatoirement souscrire au programme Apple Developer, qui coûte 100 $ par an et exige d'être majeur (18 ans), ce qui n'est pas mon cas pour le moment.",
+        "MozaikText25": "Est-ce que Mozaïk Plus peut recueillir des données personnelles ?",
+        "MozaikText26": "Non, absolument pas. Mozaïk Plus vise uniquement à améliorer le design et l'ergonomie de la plateforme scolaire. Vous pouvez vérifier le code source en tout temps : soit en inspectant la page avec les DevTools (touche F12 de votre clavier), soit en téléchargeant le code source ou la version web pour examiner les fichiers ligne par ligne en toute transparence.",
+        "MozaikText27": "Que faire en cas de bug ou de problème ?",
+        "MozaikText28": "Si vous rencontrez un problème visuel ou un dysfonctionnement, vous pouvez vous rendre sur la page GitHub du projet pour ouvrir une Issue ou suivre les dernières mises à jour. Mozaïk Plus intègre également un système de notification automatique qui vous prévient lorsqu'une nouvelle version est disponible !",
+        "MozaikText29": "Liens",
+        "MozaikText30": "Bugs et dépannage",
+        "MozaikText31": "Signaler un problème",
+        "MozaikText32": "Pourquoi un message d'avertissement de type « Application nuisible » s'affiche-t-il lors de l'installation sur Android ?",
+        "MozaikText33": "Comme je suis mineur, je ne dispose pas d'un compte de développeur validé commercialement auprès de Google. Par conséquent, Android (via Google Play Protect) applique une surveillance accrue et émet parfois de faux positifs pour les applications qui ne proviennent pas du Play Store officiel.",
+        "MozaikText34": "Mozaïk Plus est une application totalement sécuritaire. Si cet avertissement s'affiche lors de l'installation de l'APK, rassurez-vous : il vous suffit de cliquer sur « Plus de détails », puis de sélectionner « Installer quand même » pour poursuivre en toute confiance.",
+        "MozaikText35": "Mozaïk Plus est-il affilié à GRICS ?",
+        "MozaikText36": "Non, Mozaïk Plus n'est pas affilié à GRICS.",
+        "DownloadMozaikText1": "Mises en gardes",
+        "DownloadMozaikText2": "Mozaïk Plus est une solution destinée aux étudiants du Québec. Si vous êtes enseignant, administrateur ou si vous occupez un autre rôle sur le portail Mozaïk, votre expérience sera fortement dégradée si vous utilisez Mozaïk Plus.",
+        "DownloadMozaikText3": "Selon votre organisme scolaire, le comportement de Mozaïk Portail peut varier. Par exemple, certains éléments, comme la section « Autobus » ou la page « Besoin de parler ?», peuvent s'afficher incorrectement ou pas du tout. Par conséquent, vous risquez de rencontrer des instabilités au niveau des pages ou de l'interface.",
+        "DownloadMozaikText4": "Mozaïk Plus est une application disponible uniquement en français.",
+        "DownloadMozaikText5": "Télécharger l'application Android",
+        "DownloadMozaikText6": "Télécharger l'extension web",
+        "DownloadMozaikText7": "Besoin d'aide pour installer Mozaïk Plus sur votre navigateur ?",
         "RobloxhomeText1": "Home est un projet expérimental créé fin 2025 dans le seul but de recréer autant d'interfaces de Roblox que possible afin d'afficher plus d'informations grâce aux nombreuses API fournies par Roblox.",
         "RobloxhomeText2": "Qu'est-ce que Roblox ?",
         "RobloxhomeText3": "Roblox est une plateforme qui propose des milliards d'expériences créées par divers développeurs et utilisateurs. Grâce à son langage de programmation simple et intuitif, <a id=\"link\" href=\"https://luau.org/\" target=\"_blank\">Luau</a> est idéal pour les débutants. Pour en savoir plus, consultez leur site de développement officiel.",
@@ -179,33 +240,33 @@ const translations = {
     }
 };
 
-// --- SYSTÈME DE TRADUCTION ---
-// 1. Définir la langue par défaut
+fetch('https://raw.githubusercontent.com/Willixau/MozaikPlus/main/version.json?v=' + Date.now())
+    .then(response => response.json())
+    .then(data => {
+        const latestVersion = data.version;
+        const lienTelechargement = data.urlApk;
+        const lienTelechargementWeb = data.urlWeb;
+})
+
 let currentLang = localStorage.getItem('userLang') || 'en';
 const langBtn = document.getElementById('lang-toggle'); 
 
-// 2. Fonction qui met à jour tous les textes
 function updateLanguage() {
-    // Trouve TOUS les éléments HTML qui ont un attribut data-i18n
     const elements = document.querySelectorAll('[data-i18n]');
     
-    // Pour chaque élément, on va chercher la bonne traduction
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         
-        // Si la clé existe dans notre dictionnaire pour la langue actuelle
         if (translations[currentLang][key]) {
-            el.innerHTML = translations[currentLang][key]; // innerHTML permet de garder les balises <br> si tu en as
+            el.innerHTML = translations[currentLang][key];
         }
     });
     
-    // Change le texte du bouton lui-même (Si on est en FR, le bouton propose de passer en EN)
     if (langBtn) {
        langBtn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
     }
 }
 
-// 3. Écouteur pour le clic sur le bouton de changement de langue
 if (langBtn) {
     langBtn.addEventListener('click', () => {
         // Alterne entre 'fr' et 'en'
@@ -216,11 +277,7 @@ if (langBtn) {
         updateLanguage();
     });
 }
-
-// 4. TRÈS IMPORTANT : On appelle la fonction une première fois au chargement
-// C'est ça qui va faire réapparaître ton texte immédiatement !
 updateLanguage();
-// -----------------------------
 
 LearnMoreRoblox.addEventListener('click', () => {
     window.open('https://create.roblox.com/docs/get-started', '_blank');
@@ -282,9 +339,53 @@ SteamTrigger.addEventListener('click', () => {
     window.open('https://steamcommunity.com/profiles/76561199484386928/', '_blank');
 })
 
-// 1. Gestionnaire d'état du bouton Retour
+YouTubeMozaikPlusTrigger.addEventListener('click', () => {
+    window.open('https://www.youtube.com/@MozaikPlus', '_blank');
+});
+
+GitHubMozaikPlusTrigger.addEventListener('click', () => {
+    window.open('https://github.com/Willixau/MozaikPlus', '_blank');
+});
+
+BugReportTrigger.addEventListener('click', () => {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSfryrtDPzA3kn5TZBrS57IOf0NAf3NXEdgBIJC9e1Fa2ALOsA/viewform?usp=publish-editor', '_blank');
+});
+
+SchoolRessourcesTrigger.addEventListener('click', () => {
+   if (currentLang == 'fr') {
+    alert('Il y a aucune ressource scolaire disponible pour le moment.');
+    } else if (currentLang == 'en') {
+    alert('There are no school resources available at the moment.');
+    }
+});
+
+SupportTrigger.addEventListener('click', () => {
+   if (currentLang == 'fr') {
+    alert('Pour du support, envoyer moi un message direct sur Discord ou envoyer moi un courriel à Willixau@outlook.com.');
+    } else if (currentLang == 'en') {
+    alert('For support, send me a direct message on Discord or send me an email at Willixau@outlook.com.');
+    }
+});
+
+DownloadMozaikPlusAndroidTrigger.addEventListener('click', () => {
+    fetch('https://raw.githubusercontent.com/Willixau/MozaikPlus/main/version.json?v=' + Date.now())
+    .then(response => response.json())
+    .then(data => {
+        const lienTelechargement = data.urlApk;
+        lienTelechargement ? window.open(lienTelechargement, '_blank') : alert('Le lien de téléchargement n\'est pas disponible pour le moment. Veuillez réessayer plus tard.');
+})
+});
+
+DownloadMozaikPlusWebTrigger.addEventListener('click', () => {
+    fetch('https://raw.githubusercontent.com/Willixau/MozaikPlus/main/version.json?v=' + Date.now())
+    .then(response => response.json())
+    .then(data => {
+        const lienTelechargementWeb = data.urlWeb;
+        lienTelechargementWeb ? window.open(lienTelechargementWeb, '_blank') : alert('Le lien de téléchargement n\'est pas disponible pour le moment. Veuillez réessayer plus tard.');
+})
+});
+
 function updateBackBtnState() {
-    // Le bouton s'active si on est sur n'importe quelle vue autre que l'accueil
     const isMenuVisible = wrapper.classList.contains('show-menu') ||
                           wrapper.classList.contains('show-about') || 
                           wrapper.classList.contains('show-projects') || 
@@ -294,11 +395,11 @@ function updateBackBtnState() {
                           wrapper.classList.contains('show-discord') ||
                           wrapper.classList.contains('show-geometrydash') ||
                           wrapper.classList.contains('show-mozaikplus') ||
+                          wrapper.classList.contains('show-downloadmozaikplus') ||
                           wrapper.classList.contains('show-robloxhome');
     backBtn.classList.toggle('disabled', !isMenuVisible);
 }
 
-// 2. Navigation vers l'avant (Changement d'URL)
 exploreBtn.addEventListener('click', () => {
     window.location.hash = "Menu"; 
 });
@@ -313,6 +414,10 @@ ProjectsTrigger.addEventListener('click', () => {
 
 MozaikPlusTrigger.addEventListener('click', () => {
     window.location.hash = "MozaikPlus"; 
+});
+
+DownloadMozaikPlusTrigger.addEventListener('click', () => {
+    window.location.hash = "DownloadMozaikPlus"; 
 });
 
 RobloxHomeTrigger.addEventListener('click', () => {
@@ -364,6 +469,9 @@ backBtn.addEventListener('click', (event) => {
     else if (window.location.hash === "#MozaikPlus") {
         window.location.hash = "Projects";
     }
+    else if (window.location.hash === "#DownloadMozaikPlus") {
+        window.location.hash = "MozaikPlus";
+    }
     else if (window.location.hash === "#Home") {
         window.location.hash = "Projects";
     } 
@@ -380,8 +488,8 @@ backBtn.addEventListener('click', (event) => {
 // 4. Mise à jour de l'interface globale selon l'URL
 function updateInterfaceBasedOnHash() {
     // A. Nettoyage complet des affichages
-    wrapper.classList.remove('show-menu', 'show-about', 'show-projects', 'show-mozaikplus', 'show-robloxhome', 'show-social', 'show-roblox', 'show-youtube', 'show-discord', 'show-geometrydash');
-    heroSection.classList.remove('hero-tall', 'about-tall', 'projects-tall', 'mozaikplus-tall', 'robloxhome-tall', 'social-tall', 'roblox-tall', 'youtube-tall', 'discord-tall', 'geometrydash-tall');
+    wrapper.classList.remove('show-menu', 'show-about', 'show-projects', 'show-mozaikplus', 'show-downloadmozaikplus', 'show-robloxhome', 'show-social', 'show-roblox', 'show-youtube', 'show-discord', 'show-geometrydash');
+    heroSection.classList.remove('hero-tall', 'about-tall', 'projects-tall', 'mozaikplus-tall', 'downloadmozaikplus-tall', 'robloxhome-tall', 'social-tall', 'roblox-tall', 'youtube-tall', 'discord-tall', 'geometrydash-tall');
 
     // Petite astuce pour écrire moins de code !
     const hash = window.location.hash;
@@ -399,6 +507,9 @@ function updateInterfaceBasedOnHash() {
     } else if (hash === "#MozaikPlus") {
         wrapper.classList.add('show-mozaikplus', 'projects-active-order', 'mozaikplus-active-order');
         heroSection.classList.add('mozaikplus-tall');
+    } else if (hash === "#DownloadMozaikPlus") {
+        wrapper.classList.add('show-downloadmozaikplus', 'projects-active-order', 'mozaikplus-active-order', 'downloadmozaikplus-active-order');
+        heroSection.classList.add('downloadmozaikplus-tall');
     } else if (hash === "#Home") {
         wrapper.classList.add('show-robloxhome', 'projects-active-order', 'robloxhome-active-order');
         heroSection.classList.add('robloxhome-tall');
@@ -426,11 +537,15 @@ function updateInterfaceBasedOnHash() {
     setTimeout(() => {
         // On retire l'ordre de About si on ne l'utilise plus
         if (hash !== "#About") wrapper.classList.remove('about-active-order');
-        if (hash !== "#Projects" && hash !== "#Home" && hash !== "#MozaikPlus") wrapper.classList.remove('projects-active-order');
+        if (hash !== "#Projects" && hash !== "#Home" && hash !== "#MozaikPlus" && hash !== "#DownloadMozaikPlus") wrapper.classList.remove('projects-active-order');
         
         // Magie : On garde Social actif si on est sur Social OU sur un de ses réseaux enfants
         if (hash !== "#Social" && hash !== "#Roblox" && hash !== "#YouTube" && hash !== "#Discord" && hash !== "#GeometryDash") {
             wrapper.classList.remove('social-active-order');
+        }
+
+        if (hash !== "#MozaikPlus" && hash !== "#DownloadMozaikPlus") {
+        wrapper.classList.remove('mozaikplus-active-order');
         }
 
         // Nettoyage du Slot 4
@@ -438,7 +553,7 @@ function updateInterfaceBasedOnHash() {
         if (hash !== "#YouTube") wrapper.classList.remove('youtube-active-order');
         if (hash !== "#Discord") wrapper.classList.remove('discord-active-order');
         if (hash !== "#GeometryDash") wrapper.classList.remove('geometrydash-active-order');
-        if (hash !== "#MozaikPlus") wrapper.classList.remove('mozaikplus-active-order');
+        if (hash !== "#DownloadMozaikPlus") wrapper.classList.remove('downloadmozaikplus-active-order');
         if (hash !== "#Home") wrapper.classList.remove('robloxhome-active-order');
 
         const allViews = document.querySelectorAll('.view');

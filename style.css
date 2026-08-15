@@ -105,6 +105,10 @@ body {
     height: 550px;
 }
 
+.hero.downloadmozaikplus-tall {
+    height: 550px;
+}
+
 .hero.robloxhome-tall {
     height: 550px;
 }
@@ -150,11 +154,15 @@ body {
     transform: translateX(-150%); 
 }
 
-.show-robloxhome {
-    transform: translateX(-150%); 
+.show-downloadmozaikplus {
+    transform: translateX(-200%); 
 }
 
 .show-roblox {
+    transform: translateX(-150%); 
+}
+
+.show-robloxhome {
     transform: translateX(-150%); 
 }
 
@@ -216,6 +224,12 @@ div#projects-view.view {
 }
 
 div#mozaikplus-view.view {
+  --vertical-align: middle;
+  padding-top: 140px;
+  align-content:center;
+}
+
+div#downloadmozaikplus-view.view {
   --vertical-align: middle;
   padding-top: 140px;
   align-content:center;
@@ -327,6 +341,7 @@ img#GDOptionIco.box-icon {
 #geometrydash-view { order: 23; }
 #mozaikplus-view { order: 24; }
 #robloxhome-view { order: 25; }
+#downloadmozaikplus-view { order: 26; }
 
 /* 2. SLOT 3 (Translation -100%) : About ou Social */
 .about-active-order #about-view { order: 3; }
@@ -340,6 +355,8 @@ img#GDOptionIco.box-icon {
 .geometrydash-active-order #geometrydash-view { order: 4; }
 .mozaikplus-active-order #mozaikplus-view { order: 4; }
 .robloxhome-active-order #robloxhome-view { order: 4; }
+
+.downloadmozaikplus-active-order #downloadmozaikplus-view { order: 5; }
 
 /* =========================================
    NAVBAR
@@ -728,7 +745,7 @@ img.box-icon2 {
 #VideoHistory {
     border-radius: 25px;
     padding: 15px;
-
+    user-select: none;
     box-sizing: border-box;
 }
 
@@ -770,8 +787,9 @@ img.box-icon3 {
 
 #lang-toggle {
     position: absolute;
+    display: flex;
     right: 20px;
-    width: 40px;
+    width: 70px;
     height: 40px;
     margin: 20px auto;
     background-color: rgba(28, 28, 28, 0.85);
@@ -784,6 +802,14 @@ img.box-icon3 {
     cursor: pointer;
     font-family: "Fredoka One";
     font-weight: normal;
+    background-image: url('Assets/Langue.png');
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 10px;
+    padding-right: 15px;
+    justify-content: right;
+    align-items:center;
 }
 
 #lang-toggle:hover {

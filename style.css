@@ -786,7 +786,7 @@ img.box-icon3 {
 }
 
 #lang-toggle {
-    position: absolute;
+    position: fixed;
     display: flex;
     right: 20px;
     width: 70px;
@@ -810,6 +810,7 @@ img.box-icon3 {
     padding-right: 15px;
     justify-content: right;
     align-items:center;
+    Z-index: 1000;
 }
 
 #lang-toggle:hover {

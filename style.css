@@ -461,7 +461,6 @@ body section p {
     border-radius: 15px;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease;
-    max-width: 762px;
     font-size: 1.4rem;
     text-align:left;
     padding-left: 15px;
@@ -482,7 +481,6 @@ body section p {
     margin-right: 3px;
     margin-bottom: 5px;
     border-radius: 15px;
-    max-width: 762px;
     font-size: 1.4rem;
     text-align:left;
     text-overflow:clip;
@@ -762,15 +760,19 @@ img.box-icon3 {
 }
 
 #Home-Profile {
-    border-radius: 100px;
+    border-radius: 500px;
     height: min-content;
     width:22%;
-    min-width: 75px;
+    min-width: 100px;
     user-select: none;
+    max-height: 175px;
+    max-width: 175px;
 }
 
 #WillixauStuff {
     height: 60%;
+    padding-top: 25vh;
+    padding-bottom: 25vh;
 }
 
 #link {
@@ -818,4 +820,94 @@ img.box-icon3 {
 #lang-toggle:hover {
     background-color: #5c5c5c;
     transform: translateY(-3px);
+}
+
+#MobileCopyright {
+    visibility: hidden;
+}
+
+@media only screen and (max-height: 690px) and (max-width: 1100px), only screen and (max-height: 574px), only screen and (max-width: 500px) {
+  .hero {
+    background-color: rgba(28, 28, 28, 0.85);
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    height: 100vh;
+    max-width: none;
+  }
+
+  #Status {
+    display: none;
+  }
+
+  #Build {
+    display: none;
+  }
+
+  #Version {
+    display: none;
+  }
+
+  #Updated {
+    display: none;
+  }
+
+  .texte-bas-gauche {
+    display: none;
+  }
+
+  #MobileCopyright {
+    visibility: visible;
+  }
+}
+
+#home-view {
+  overflow-y: hidden;
+}
+
+@media only screen and (max-width: 500px) {
+  #WillixauStuff {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 175px;
+  }
+
+  #home-Profile {
+    padding: 50px !important;
+    margin: 50px !important;
+  }
+}
+
+#MobileCopyright {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5px;
+  z-index: 1000;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+#DonateTrigger {
+    cursor: not-allowed !important;
+    opacity: 0.4 !important;
+    background-color: rgba(50, 50, 50, 1) !important;
+}
+
+#DonateTrigger:hover {
+    background-color: rgba(50, 50, 50, 1) !important;
+    transform: translateY(0px) !important;
+    opacity: 0.4 !important;
+}
+
+#ContactTrigger {
+    cursor: not-allowed !important;
+    opacity: 0.4 !important;
+    background-color: rgba(50, 50, 50, 1) !important;
+}
+
+#ContactTrigger:hover {
+    background-color: rgba(50, 50, 50, 1) !important;
+    transform: translateY(0px) !important;
+    opacity: 0.4 !important;
 }

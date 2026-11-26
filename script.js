@@ -43,6 +43,9 @@ const BugReportTrigger = document.querySelector("#BugReportTrigger");
 const DownloadMozaikPlusAndroidTrigger = document.querySelector("#DownloadMozaikPlusAndroidTrigger");
 const DownloadMozaikPlusWebTrigger = document.querySelector("#DownloadMozaikPlusWebTrigger");
 
+const LearnMoreHomeTrigger = document.querySelector("#LearnMoreHomeTrigger");
+const LearnMoreMozaikTrigger = document.querySelector("#LearnMoreMozaikTrigger");
+
 const translations = {
     en: {
         "btn-explore": "Interact to begin",
@@ -52,7 +55,7 @@ const translations = {
         "TextSocial": "Social Media & platforms",
         "TextSchool": "School Ressources",
         "TextSupport": "Support",
-        "TextDonate": "Donate (Coming Soon, look in my previous website)",
+        "TextDonate": "Donate",
         "TextContact": "Contact (Coming Soon)",
         "MozaikText1": "Mozaïk Plus is an application and a web extension (for PC) to better familiarize students with a complete overhaul of the interface and the addition of relevant features on Mozaïk Portail.",
         "MozaikText2": "Features",
@@ -112,26 +115,30 @@ const translations = {
         "RobloxhomeText13": "View on Roblox",
         "RobloxhomeText14": "Home, everything in one experience.",
         "AboutText1": "About",
-        "AboutText2": "I love making things like programming, editing and more.",
-        "AboutText3": "My IT story",
-        "AboutText4": "When I was young, I developed a passion for computers, and I've grown every year since. It all started by exploring my computer environment to discover what would happen if I clicked a button. My curiosity led me to start creating user interfaces (UIs) with WIX, and I improved over time. Later, I created a game with two friends using the Construct 3 platform, and I quickly realized I loved creating interfaces. My two friends handled the gameplay while I created all the UI elements. This project lasted from November 2024 to July 2025. Then, I decided to gradually abandon it due to a lack of documentation and explanations, and because it was a bit complex. That's why, in August 2025, I created my first experience on Roblox Studio. Without realizing it, the knowledge I gained from Construct 3 made learning Luau much easier. In just three months, I mastered the language.",
-        "AboutText5": "After all that, in the beginning of 2026, I was tired of an old interface on a web page. This page was Mozaïk Portail (mozaikportail.ca). So I decided to install an extension named Stylebot to customize this website. But I quickly realized that was coding. So by the help of Google Gemini (AI), I learned how to code in CSS and the web page was beautiful. Soon, I will release an APK file for android devices and a extension file for desktop browsers to allow everyone enjoying my work. This will be called Mozaïk Plus. So after learning CSS, I got motivated to learn HTML and Javascript and that's why I started to create my own website with theses 3 languages (CSS + HTML + JS) that will remplace the WIX website.",
-        "AboutText6": "Ultimately, thanks to all the experience I've gained over the past three years, I'm helping the community and learning programming languages. I also make progress on my Roblox game Home, my website and Mozaïk Plus.",
-        "AboutText7": "Why the name Willixau ?",
-        "AboutText8": "Back in 2023, instead of integrating my real name, I wanted to create a French username with the beginning of my real name with a special letter: X. So I started with \"Chaine Willix\" (the Willix channel) for at least five months until I realised it wasn't original enough. So that's why I wanted something with water. So in French, water is \"eau\". So, I went with Willixeau. Later, I removed the \"e\" in \"eau\" for a shorter username, and I added two zeros to be on the top of the player lists (because they're sorted alphabetically). So here is the result: 00willixau00. After that, I added a capital letter, changing it to '00Willixau00', and starting in Mars 2025, I finally kept it to only 'Willixau'.",
-        "AboutText9": "Logo history",
-        "AboutText10": "2023 - October 2024 (Still using for branding) ",
-        "AboutText11": "October 2024 - December 2024",
-        "AboutText12": "December 2024 - February 2025",
-        "AboutText13": "February 2025 - March 2025",
-        "AboutText14": "March 2025 - Today",
-        "AboutText15": "Background History",
-        "AboutText16": "February 2024 - June 2025",
-        "AboutText17": "June 2025 - Today",
-        "AboutText18": "Desktop Background History",
-        "AboutText19": "July 2024 - July 2025",
-        "AboutText20": "July 2025 - January 2026",
-        "AboutText21": "January 2026 - Today",
+        "AboutText2": "My IT story",
+        "AboutText3": "When I was young, I developed a passion for computers, and I've grown with it every year since. It all started with exploring my computer environment to see what would happen when I interacted with something on screen. My curiosity led me to start creating user interfaces (UI) with Wix, and I improved over time.",
+        "AboutText4": "Later, in late 2024, I created a game with two friends using the Construct 3 platform for a school project and quickly realized I enjoyed creating interfaces. My two friends handled the gameplay while I designed all the visual elements (UI). In June 2025, I found myself alone keeping the project going. In July, I decided to drop it after realizing it probably wouldn't lead anywhere. That's how I got into coding on a Roblox project.",
+        "AboutText5": "Since 2023, the Roblox platform has been one of my favorite hobbies outside of programming. That's why I thought I could create an experience on Roblox and become a developer on the platform. This brings me to the experience I created and developed from August 2025 to April 2026: Home.",
+        "AboutText6": "Learn more",
+        "AboutText7": "Throughout this transition, the knowledge I gained from Construct 3 made learning the platform's language, Luau, much easier—to the point where I mastered it in just three months.",
+        "AboutText8": "Next, from April 2026 until today, the outdated interface of a website, Mozaïk-Portail, was getting on my nerves. I decided to install an extension called Stylebot to customize Mozaïk, but quickly realized it involved coding. With the help of Google's AI, Gemini, I learned CSS and was able to transform Mozaïk's look. However, I felt I could go further. So I used another extension, Violentmonkey, to add features in JavaScript. Once I was happy with the result, I thought other people might be interested. I then created a web extension as well as an Android APK to share this project with others!",
+        "AboutText9": "Finally, alongside developing Mozaïk Plus, I've been maintaining my website on GitHub since June 2026, replacing my previous Wix site.",
+        "AboutText10": "Today, I work on Mozaïk Plus, my website, and, occasionally, video editing, while continuing to teach myself computer science through AI, tutorials, and documentation. I also help my community and people around me with tech support. So never hesitate to ask me for help—I'm always happy to assist you.",
+        "AboutText11": "Why the name Willixau ?",
+        "AboutText12": "Back in 2023, instead of integrating my real name, I wanted to create a French username with the beginning of my real name with a special letter: X. So I started with \"Chaine Willix\" (the Willix channel) for at least five months until I realised it wasn't original enough. So that's why I wanted something with water. So in French, water is \"eau\". So, I went with Willixeau. Later, I removed the \"e\" in \"eau\" for a shorter username, and I added two zeros to be on the top of the player lists (because they're sorted alphabetically). So here is the result: 00willixau00. After that, I added a capital letter, changing it to '00Willixau00', and starting in Mars 2025, I finally kept it to only 'Willixau'.",
+        "AboutText13": "Logo history",
+        "AboutText14": "2023 - October 2024 (Still using for branding) ",
+        "AboutText15": "October 2024 - December 2024",
+        "AboutText16": "December 2024 - February 2025",
+        "AboutText17": "February 2025 - March 2025",
+        "AboutText18": "March 2025 - Today",
+        "AboutText19": "Background History",
+        "AboutText20": "February 2024 - June 2025",
+        "AboutText21": "June 2025 - Today",
+        "AboutText22": "Desktop Background History",
+        "AboutText23": "July 2024 - July 2025",
+        "AboutText24": "July 2025 - January 2026",
+        "AboutText25": "January 2026 - Today",
         "SocialText1": "Social Media & platforms",
         "RobloxText1": "Profile",
         "RobloxText2": "Community",
@@ -149,7 +156,7 @@ const translations = {
         "TextSocial": "Réseaux sociaux et plateformes",
         "TextSchool": "Ressources scolaires",
         "TextSupport": "Support",
-        "TextDonate": "Don (À venir, consultez mon site web précédent)",
+        "TextDonate": "Don",
         "TextContact": "Contact (À venir)",
         "MozaikText1": "Mozaïk Plus est une application et une extension web (pour PC) permettant de mieux familiariser les étudiants avec une refonte complète de l'interface et l'ajout de fonctionnalités pertinentes sur Mozaïk Portail.",
         "MozaikText2": "Fonctionnalités",
@@ -209,26 +216,30 @@ const translations = {
         "RobloxhomeText13": "Voir sur Roblox",
         "RobloxhomeText14": "Home, tout en une expérience.",
         "AboutText1": "À propos",
-        "AboutText2": "J'adore créer des interfaces utilisateur (UI), programmer, faire du montage et plus encore.",
-        "AboutText3": "Mon histoire en informatique",
-        "AboutText4": "Quand j'étais jeune, j'ai développé une passion pour les ordinateurs, et j'ai grandi chaque année depuis. Tout a commencé par explorer mon environnement informatique pour découvrir ce qui se passerait si je cliquais sur un bouton. Ma curiosité m'a conduit à commencer à créer des interfaces utilisateur (UI) avec WIX, et je me suis amélioré au fil du temps. Plus tard, j'ai créé un jeu avec deux amis en utilisant la plateforme Construct 3, et j'ai rapidement réalisé que j'aimais créer des interfaces. Mes deux amis s'occupaient du gameplay tandis que je créais tous les éléments UI. Ce projet a duré de novembre 2024 à juillet 2025. Ensuite, j'ai décidé de l'abandonner progressivement en raison d'un manque de documentation et d'explications, et parce que c'était un peu complexe. C'est pourquoi, en août 2025, j'ai créé ma première expérience sur Roblox Studio. Sans m'en rendre compte, les connaissances que j'avais acquises grâce à Construct 3 ont rendu l'apprentissage de Luau beaucoup plus facile. En seulement trois mois, j'ai maîtrisé le langage.",
-        "AboutText5": "Après tout cela, au début de 2026, j'étais fatigué d'une ancienne interface sur une page web. Cette page était Mozaïk Portail (mozaikportail.ca). J'ai donc décidé d'installer une extension nommée Stylebot pour personnaliser ce site web. Mais j'ai rapidement réalisé que c'était du codage. Alors, avec l'aide de Google Gemini (IA), j'ai appris à coder en CSS et la page web était magnifique. Bientôt, je publierai un fichier APK pour les appareils Android et un fichier d'extension pour les navigateurs de bureau afin de permettre à tout le monde de profiter de mon travail. Cela s'appellera Mozaïk Plus. Donc après avoir appris le CSS, j'ai été motivé à apprendre le HTML et le Javascript et c'est pourquoi j'ai commencé à créer mon propre site web avec ces 3 langages (CSS + HTML + JS) qui remplacera éventuellement le site WIX.",
-        "AboutText6": "En fin de compte, grâce à toute l'expérience que j'ai acquise au cours des trois dernières années, j'aide la communauté et j'apprends des langages de programmation. Je fais également des progrès sur mon jeu Roblox Home, mon site web et Mozaïk Plus.",
-        "AboutText7": "Pourquoi le nom Willixau ?",
-        "AboutText8": "En 2023, au lieu d'intégrer mon vrai nom, je voulais créer un nom d'utilisateur avec le début de mon vrai nom avec une lettre spéciale : X. J'ai donc commencé avec \"La Chaine Willix\" pendant au moins cinq mois jusqu'à ce que je réalise que ce n'était pas assez original. C'est pourquoi je voulais quelque chose avec de l'eau. J'ai donc opté pour Willixeau. Plus tard, j'ai retiré le \"e\" dans \"eau\" pour un nom plus court, et j'ai ajouté deux zéros pour être en haut des listes de joueurs (\"playerlists\") (car elles sont triées par ordre alphabétique) qui donne 00willixau00. Après cela, j'ai ajouté une majuscule, le changeant en '00Willixau00', et à partir de mars 2025, je l'ai finalement gardé uniquement en 'Willixau'.",
-        "AboutText9": "Historique du logo",
-        "AboutText10": "2023 - Octobre 2024 (Toujours utilisé pour le branding) ",
-        "AboutText11": "Octobre 2024 - Décembre 2024",
-        "AboutText12": "Décembre 2024 - Février 2025",
-        "AboutText13": "Février 2025 - Mars 2025",
-        "AboutText14": "Mars 2025 - Aujourd'hui",
-        "AboutText15": "Historique de l'arrière-plan",
-        "AboutText16": " Février 2024 - Juin 2025",
-        "AboutText17": "Juin 2025 - Aujourd'hui",
-        "AboutText18": "Historique de l'arrière-plan du bureau",
-        "AboutText19": "Juillet 2024 - Juillet 2025",
-        "AboutText20": "Juillet 2025 - Janvier 2026",
-        "AboutText21": "Janvier 2026 - Aujourd'hui",
+        "AboutText2": "Mon histoire en informatique",
+        "AboutText3": "Quand j'étais jeune, j'ai développé une passion pour les ordinateurs, et j'ai grandi chaque année depuis. Tout a commencé par explorer mon environnement informatique pour découvrir ce qui se passerait lorsque j'interagis avec un élément à l'écran. Ma curiosité m'a conduit à commencer à créer des interfaces utilisateur (UI) avec Wix, et je me suis amélioré au fil du temps.",
+        "AboutText4": "Plus tard, fin 2024, j'ai créé un jeu avec deux amis en utilisant la plateforme Construct 3 pour un projet scolaire et j'ai rapidement réalisé que j'aimais créer des interfaces. Mes deux amis s'occupaient du gameplay tandis que je faisais la conception de tous les éléments visuels (UI). En juin 2025, je me suis retrouvé seul à faire vivre ce projet. En juillet, j'ai donc décidé de l'abandonner après avoir compris qu'il ne mènerait probablement à rien. C'est ainsi que je me suis lancé dans le codage sur un projet Roblox.",
+        "AboutText5": "Depuis 2023, la plateforme Roblox est l'un de mes passe-temps favoris, en dehors de la programmation. C'est donc pourquoi je me suis dit que je pourrais créer une expérience sur Roblox et devenir développeur sur cette plateforme. Cela m'amène à l'expérience que j'ai créée et développée d'août 2025 à avril 2026 : Home.",
+        "AboutText6": "En savoir plus",
+        "AboutText7": "Au fil de cette transition, les connaissances acquises grâce à Construct 3 ont rendu l'apprentissage du langage de la plateforme, le Luau, beaucoup plus facile — au point de le maîtriser en seulement trois mois.",
+        "AboutText8": "Ensuite, d'avril 2026 jusqu'à aujourd'hui, l'ancienne interface d'un site web, Mozaïk-Portail, me pesait. J'ai donc décidé d'installer une extension nommée Stylebot pour personnaliser Mozaïk, mais j'ai rapidement réalisé que cela passait par du code. Avec l'aide de l'intelligence artificielle de Google, Gemini, j'ai appris le CSS et j'ai pu transformer l'apparence de Mozaïk. Toutefois, je trouvais que je pouvais aller plus loin. J'ai donc utilisé une autre extension, Violentmonkey, afin d'ajouter des fonctionnalités en JavaScript. Une fois satisfait du résultat, je me suis dit que d'autres personnes seraient peut-être intéressées. J'ai alors créé une extension web ainsi qu'un APK Android pour partager ce projet avec d'autres !",
+        "AboutText9": "Enfin, en parallèle du développement de Mozaïk Plus, je maintiens mon site web sur GitHub depuis juin 2026, en remplacement de mon ancien site Wix.",
+        "AboutText10": "Finalement, aujourd'hui, je travaille sur Mozaïk Plus, mon site web et, à l'occasion, sur du montage vidéo, tout en continuant d'apprendre l'informatique en autodidacte grâce à l'IA, aux tutoriels et aux documentations. J'aide également la communauté et mon entourage pour du soutien informatique. N'hésitez donc jamais à me demander de l'aide : il me fera toujours plaisir de vous assister.",
+        "AboutText11": "Pourquoi le nom Willixau ?",
+        "AboutText12": "En 2023, au lieu d'intégrer mon vrai nom, je voulais créer un nom d'utilisateur avec le début de mon vrai nom avec une lettre spéciale : X. J'ai donc commencé avec \"La Chaine Willix\" pendant au moins cinq mois jusqu'à ce que je réalise que ce n'était pas assez original. C'est pourquoi je voulais quelque chose avec de l'eau. J'ai donc opté pour Willixeau. Plus tard, j'ai retiré le \"e\" dans \"eau\" pour un nom plus court, et j'ai ajouté deux zéros pour être en haut des listes de joueurs (\"playerlists\") (car elles sont triées par ordre alphabétique) qui donne 00willixau00. Après cela, j'ai ajouté une majuscule, le changeant en '00Willixau00', et à partir de mars 2025, je l'ai finalement gardé uniquement en 'Willixau'.",
+        "AboutText13": "Historique du logo",
+        "AboutText14": "2023 - Octobre 2024 (Toujours utilisé pour le branding) ",
+        "AboutText15": "Octobre 2024 - Décembre 2024",
+        "AboutText16": "Décembre 2024 - Février 2025",
+        "AboutText17": "Février 2025 - Mars 2025",
+        "AboutText18": "Mars 2025 - Aujourd'hui",
+        "AboutText19": "Historique de l'arrière-plan",
+        "AboutText20": " Février 2024 - Juin 2025",
+        "AboutText21": "Juin 2025 - Aujourd'hui",
+        "AboutText22": "Historique de l'arrière-plan du bureau",
+        "AboutText23": "Juillet 2024 - Juillet 2025",
+        "AboutText24": "Juillet 2025 - Janvier 2026",
+        "AboutText25": "Janvier 2026 - Aujourd'hui",
         "TextSocial": "Réseaux sociaux et plateformes",
         "RobloxText1": "Profil",
         "RobloxText2": "Communauté",
@@ -347,8 +358,20 @@ GitHubMozaikPlusTrigger.addEventListener('click', () => {
     window.open('https://github.com/Willixau/MozaikPlus', '_blank');
 });
 
+//DonateTrigger.addEventListener('click', () => {
+    //window.open('https://www.paypal.com/ncp/payment/F28BRRAJK4GZJ', '_blank');
+//});
+
 BugReportTrigger.addEventListener('click', () => {
     window.open('https://docs.google.com/forms/d/e/1FAIpQLSfryrtDPzA3kn5TZBrS57IOf0NAf3NXEdgBIJC9e1Fa2ALOsA/viewform?usp=publish-editor', '_blank');
+});
+
+LearnMoreHomeTrigger.addEventListener('click', () => {
+    window.location.hash = 'Home';
+});
+
+LearnMoreMozaikTrigger.addEventListener('click', () => {
+    window.location.hash = 'MozaikPlus';
 });
 
 SchoolRessourcesTrigger.addEventListener('click', () => {
@@ -566,3 +589,9 @@ function updateInterfaceBasedOnHash() {
 // 5. Écouteurs d'événements de chargement
 window.addEventListener('load', updateInterfaceBasedOnHash);
 window.addEventListener('hashchange', updateInterfaceBasedOnHash);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Tab") {
+    event.preventDefault();
+  }
+});
